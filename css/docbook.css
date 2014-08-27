@@ -1,0 +1,35 @@
+/* ascii 图形在 pre 下也不要加背景色 */
+.figure pre {
+    background-color: transparent;
+}
+
+span.emphasis {
+    font-weight: bold;
+}
+
+/* Customizing admonitions */
+div.note {
+    border-left:10px solid #C0C0C0;
+    padding:0 5px;
+}
+
+div.tip {
+    border-left:10px solid #00FF00;
+    padding:0 5px;
+}
+
+div.caution {
+    border-left:10px solid #FFFF00;
+    padding:0 5px;
+}
+
+div.warning {
+    border-left:10px solid #FFA500;
+    padding:0 5px;
+}
+
+div.important {
+    border-left:10px solid #FF0000;
+    padding:0 5px;
+}
+/* Customizing admonitions end */

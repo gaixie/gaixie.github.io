@@ -1,0 +1,21 @@
+table.container {
+    width:100%;
+}
+
+td.content {
+    width:70%; 
+    text-align:left;
+}
+
+td.logo {
+    text-align:right;
+}
+
+td.menu {
+    text-align:right; 
+    vertical-align:top;
+}
+
+.content h1 {
+    text-align:center; 
+}

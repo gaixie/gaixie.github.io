@@ -1,0 +1,14 @@
+body {
+    font-family: arial, sans-serif;
+}
+
+a img {
+    border: none;
+}
+
+pre {
+    background-color: #EEEEEE;
+    font-family: courier,monospace;
+    font-size: 85%;
+    padding: 4px;
+}
