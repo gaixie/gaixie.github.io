@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
+<head>
+<title>Debugging With Emacs</title>
+<!-- 2014-08-27 Wed 17:40 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Tommy Wang" />
+<link rel="shortcut icon" href="http://gaixie.org/favicon.ico?1" type="image/x-icon" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/css/org.css" type="text/css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Debugging With Emacs</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 使用 GDB 调试 C 或 C++ 程序</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 编译程序</a></li>
+<li><a href="#sec-1-2">1.2. 在 Emacs 中打开 GDB</a></li>
+<li><a href="#sec-1-3">1.3. GDB 常用命令</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 使用 GDB 调试 C 或 C++ 程序</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+GDB 是 GNU 的调试器，它可以让您查看程序的内部结构、打印变量值、
+设置断点，以及单步调试源代码。它是功能极其强大的工具，适用于修复程序代码中的问题。
+它和 Emacs 算是同门，很容易进行集成。
+</p>
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 编译程序</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+假设我们有一个程序 hello.cpp。
+</p>
+<pre class="example">
+#include &lt;iostream&gt;
+
+int main(void)
+{
+  char greeting[] = "Hello World!";
+  std::cout &lt;&lt; greeting &lt;&lt; std::endl;
+  return 0;
+}
+</pre>
+<p>
+开始调试之前，必须用程序中的调试信息编译要调试的程序。这样，gdb
+才能够调试所使用的变量、代码行和函数。如果要进行编译，请在 g++
+（或 gcc）下使用额外的 '-g' 选项来编译程序。
+</p>
+<pre class="example">
+$ g++ -g -o hello hello.cpp
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 在 Emacs 中打开 GDB</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+在 Emacs 编辑 hello.cpp 文件窗口下，通过下面命令启动一个独立的 gdb 窗口：
+</p>
+<pre class="example">
+M-x gdb
+</pre>
+<p>
+然后输入 gdb -i=mi hello，表示 gdb 的解释器 (-interpreter) 使用最新的 mi 接口。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> GDB 常用命令</h3>
+<div class="outline-text-3" id="text-1-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">command</th>
+<th scope="col" class="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">list</td>
+<td class="left">列出源码，可以用两个整数做参数，用逗号风格，来显示指定行的代码段。</td>
+</tr>
+
+<tr>
+<td class="left">run</td>
+<td class="left">运行程序至第一个断点。<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></td>
+</tr>
+
+<tr>
+<td class="left">break</td>
+<td class="left">加断点，例如 break 5 表示在第 5行加一个断点。断点全部加好以后，可以再 run。</td>
+</tr>
+
+<tr>
+<td class="left">next</td>
+<td class="left">执行下一个语句。</td>
+</tr>
+
+<tr>
+<td class="left">continue</td>
+<td class="left">执行到下一个断点。</td>
+</tr>
+
+<tr>
+<td class="left">watch</td>
+<td class="left">观测 一个变量，例如 watch ret 表示观测 ret 变量。</td>
+</tr>
+
+<tr>
+<td class="left">print</td>
+<td class="left">输出一个变量的值，例如 print ret 表示向屏幕输出 ret 的值。</td>
+</tr>
+
+<tr>
+<td class="left">quit</td>
+<td class="left">退出 gdb 调试模式。</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+参考文档
+</p>
+<ul class="org-ul">
+<li><a href="http://www.ibm.com/developerworks/cn/linux/sdk/gdb/index.html">使用 GDB 调试 Linux 软件</a>
+</li>
+<li><a href="http://kb.iu.edu/data/aqsy.html">Step-by-step example for using GDB within Emacs to debug a C or C++ program</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+如果提示下面的信息，需要额外安装一些调试用的软件包。Fedora 下，debuginfo-install 在 yum-utils 包下。
+</p>
+<pre class="example">
+(gdb) run
+Starting program: /home/tommy/hello
+(gdb) Missing separate debuginfos, use: debuginfo-install glibc-2.14.1-6.i686 
+libgcc-4.6.3-2.fc15.i686 libstdc++-4.6.3-2.fc15.i686
+
+$ sudo yum install yum-utils
+$ sudo debuginfo-install glibc libgcc libstdc++
+</pre></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

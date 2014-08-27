@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
+<head>
+<title>Emacs Key Bindings</title>
+<!-- 2014-08-27 Wed 17:40 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Tommy Wang" />
+<link rel="shortcut icon" href="http://gaixie.org/favicon.ico?1" type="image/x-icon" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/css/org.css" type="text/css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Emacs Key Bindings</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">已绑定快捷键</a></li>
+<li><a href="#sec-2">未绑定快捷键</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">已绑定快捷键</h2>
+<div class="outline-text-2" id="text-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">keys</th>
+<th scope="col" class="left">scope</th>
+<th scope="col" class="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Misc-Help.html">C-h b</a></td>
+<td class="left">global</td>
+<td class="left">列出所有已定义的快捷键</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Examining.html">C-h v</a></td>
+<td class="left">global</td>
+<td class="left">显示给定变量的当前值</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Setting-Mark.html">C-@</a></td>
+<td class="left">global</td>
+<td class="left">标记点的位置，另一个同样功能的热键 C-SPC 中文环境下被操作系统占用了</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Marking-Objects.html">C-x h</a></td>
+<td class="left">global</td>
+<td class="left">当前 buffer 中所有内容全部选中</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Change-Window.html">C-x +</a></td>
+<td class="left">global</td>
+<td class="left">将窗口变为相同的大小</td>
+</tr>
+
+<tr>
+<td class="left">C-x -</td>
+<td class="left">global</td>
+<td class="left">缩小窗口以适合 buffer 中显示的内容</td>
+</tr>
+
+<tr>
+<td class="left">C-x ^</td>
+<td class="left">global</td>
+<td class="left">当前窗口变高一行，C-u - 2 C-x ^ 表示当前窗口变低两行</td>
+</tr>
+
+<tr>
+<td class="left">C-x }</td>
+<td class="left">global</td>
+<td class="left">当前窗口变宽一列</td>
+</tr>
+
+<tr>
+<td class="left">C-x {</td>
+<td class="left">global</td>
+<td class="left">当前窗口变窄一列</td>
+</tr>
+
+<tr>
+<td class="left">C-x 0</td>
+<td class="left">global</td>
+<td class="left">删除当前窗口</td>
+</tr>
+
+<tr>
+<td class="left">C-x 1</td>
+<td class="left">global</td>
+<td class="left">删除其它窗口，只保留当前窗口</td>
+</tr>
+
+<tr>
+<td class="left">C-x 2</td>
+<td class="left">global</td>
+<td class="left">将当前窗口上下平均分割窗口</td>
+</tr>
+
+<tr>
+<td class="left">C-x 3</td>
+<td class="left">global</td>
+<td class="left">将当前窗口左右平均分割窗口</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation-Commands.html#Indentation-Commands">C-M-\</a></td>
+<td class="left">global</td>
+<td class="left">对选择的 region 进行缩进</td>
+</tr>
+
+<tr>
+<td class="left">C-M-q</td>
+<td class="left">global</td>
+<td class="left">括号分组内进行缩进，光标必须在起始括号所在行上</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Query-Replace.html">M-%</a></td>
+<td class="left">global</td>
+<td class="left">逐个替换匹配到的字符串</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Window-Convenience.html">C-c &lt;left&gt;</a></td>
+<td class="left">global</td>
+<td class="left">undo 到上一个窗口配置</td>
+</tr>
+
+<tr>
+<td class="left">C-c &lt;right&gt;</td>
+<td class="left">global</td>
+<td class="left">redo 到下一个窗口配置</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><a href="http://orgmode.org/manual/Activation.html#Activation">C-c a</a></td>
+<td class="left">global</td>
+<td class="left">打开日程命令 buffer</td>
+</tr>
+
+<tr>
+<td class="left">C-c b</td>
+<td class="left">global</td>
+<td class="left">在多个 org buffer 中切换</td>
+</tr>
+
+<tr>
+<td class="left">C-c c</td>
+<td class="left">global</td>
+<td class="left">几乎不用打断当前的工作，快速的记录一个想法或信息到制定的文件</td>
+</tr>
+
+<tr>
+<td class="left">C-c l</td>
+<td class="left">global</td>
+<td class="left">把当前文件存为一个链接，可以在其它 buffer 中 C-c C-l 来插入此链接</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><a href="http://orgmode.org/manual/Easy-Templates.html#Easy-Templates">&lt;e TAB</a></td>
+<td class="left">org-mode</td>
+<td class="left">文本中输入自动生成 EXAMPLE 代码块</td>
+</tr>
+
+<tr>
+<td class="left">&lt;s TAB</td>
+<td class="left">org-mode</td>
+<td class="left">文本中输入自动生成 SRC 代码块</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://orgmode.org/manual/Creating-timestamps.html#Creating-timestamps">C-c .</a></td>
+<td class="left">org-mode</td>
+<td class="left">插入一个日期</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://orgmode.org/manual/Built_002din-table-editor.html">M-S-&lt;left&gt;</a></td>
+<td class="left">org-mode</td>
+<td class="left">删除表格的当前列</td>
+</tr>
+
+<tr>
+<td class="left">M-S-&lt;right&gt;</td>
+<td class="left">org-mode</td>
+<td class="left">当前列左侧插入一列</td>
+</tr>
+
+<tr>
+<td class="left">M-S-&lt;up&gt;</td>
+<td class="left">org-mode</td>
+<td class="left">删除表格的当前行</td>
+</tr>
+
+<tr>
+<td class="left">M-S-&lt;down&gt;</td>
+<td class="left">org-mode</td>
+<td class="left">当前行上方插入一行</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://orgmode.org/manual/The-Export-Dispatcher.html#The-Export-Dispatcher">C-c C-e</a></td>
+<td class="left">org-mode</td>
+<td class="left">导出到其它格式</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/nxml-mode/Outlining.html#Outlining">C-c C-o C-a</a></td>
+<td class="left">nxml-mode</td>
+<td class="left">显示所有章节</td>
+</tr>
+
+<tr>
+<td class="left">C-c C-o C-c</td>
+<td class="left">nxml-mode</td>
+<td class="left">隐藏当前章节的文本内容，子章节并不隐藏</td>
+</tr>
+
+<tr>
+<td class="left">C-c C-o C-d</td>
+<td class="left">nxml-mode</td>
+<td class="left">隐藏当前章节的文本内容及所有子章节</td>
+</tr>
+
+<tr>
+<td class="left">C-c C-o C-e</td>
+<td class="left">nxml-mode</td>
+<td class="left">显示当前章节的所有文本内容</td>
+</tr>
+
+<tr>
+<td class="left">C-c C-o C-k</td>
+<td class="left">nxml-mode</td>
+<td class="left">显示当前章节及所有子章节的标题</td>
+</tr>
+
+<tr>
+<td class="left">C-c C-o C-l</td>
+<td class="left">nxml-mode</td>
+<td class="left">隐藏当前章节和它所有直接、非直接子章节的文本内容</td>
+</tr>
+
+<tr>
+<td class="left">C-c C-o C-o</td>
+<td class="left">nxml-mode</td>
+<td class="left">除了当前章节的文本内容不隐藏，其它章节(包括父，子章节)的文本内容全部隐藏</td>
+</tr>
+
+<tr>
+<td class="left">C-c C-o C-s</td>
+<td class="left">nxml-mode</td>
+<td class="left">显示当前章节下的所有内容及所有子章节</td>
+</tr>
+
+<tr>
+<td class="left">C-c C-o C-t</td>
+<td class="left">nxml-mode</td>
+<td class="left">隐藏所有章节的文本内容</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Insert-in-Picture.html#Insert-in-Picture">C-c &lt;</a></td>
+<td class="left">picture-mode</td>
+<td class="left">插入后向左移，同 C-c &lt;LEFT&gt;</td>
+</tr>
+
+<tr>
+<td class="left">C-c &gt;</td>
+<td class="left">picture-mode</td>
+<td class="left">插入后向右移，同 C-c &lt;RIGHT&gt;</td>
+</tr>
+
+<tr>
+<td class="left">C-c ^</td>
+<td class="left">picture-mode</td>
+<td class="left">插入后向上移，同 C-c &lt;UP&gt;</td>
+</tr>
+
+<tr>
+<td class="left">C-c .</td>
+<td class="left">picture-mode</td>
+<td class="left">插入后向下移，同 C-c &lt;DOWN&gt;</td>
+</tr>
+
+<tr>
+<td class="left">C-c `</td>
+<td class="left">picture-mode</td>
+<td class="left">插入后向左上（西北）移，同 C-c &lt;HOME&gt;</td>
+</tr>
+
+<tr>
+<td class="left">C-c '</td>
+<td class="left">picture-mode</td>
+<td class="left">插入后向右上（东北）移，同 C-c &lt;prior&gt;</td>
+</tr>
+
+<tr>
+<td class="left">C-c /</td>
+<td class="left">picture-mode</td>
+<td class="left">插入后向左下（西南）移，同 C-c &lt;END&gt;</td>
+</tr>
+
+<tr>
+<td class="left">C-c \</td>
+<td class="left">picture-mode</td>
+<td class="left">插入右向右下（东南）移，同 C-c &lt;next&gt;</td>
+</tr>
+
+<tr>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Picture-Mode.html">C-c C-c</a></td>
+<td class="left">picture-mode</td>
+<td class="left">退回到原来的 major-mode</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">未绑定快捷键</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">scope</th>
+<th scope="col" class="left">function</th>
+<th scope="col" class="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">global</td>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Eval.html">eval-buffer</a></td>
+<td class="left">执行当前 buffer 中的所有 emacs lisp 语句</td>
+</tr>
+
+<tr>
+<td class="left">global</td>
+<td class="left"><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation.html#Compilation">compile</a></td>
+<td class="left">运行一个异步的编译器</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
+<head>
+<title>Software Installation</title>
+<!-- 2014-08-27 Wed 17:40 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Tommy Wang" />
+<link rel="shortcut icon" href="http://gaixie.org/favicon.ico?1" type="image/x-icon" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/css/org.css" type="text/css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Software Installation</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. GnuPG</a></li>
+<li><a href="#sec-2">2. Java</a></li>
+<li><a href="#sec-3">3. Git</a></li>
+<li><a href="#sec-4">4. Emacs</a>
+<ul>
+<li><a href="#sec-4-1">4.1. Emacs 编译安装</a></li>
+<li><a href="#sec-4-2">4.2. Orgmode 编译安装</a></li>
+<li><a href="#sec-4-3">4.3. Markdown 配置</a></li>
+<li><a href="#sec-4-4">4.4. Emacs 配置</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Thunderbird</a></li>
+<li><a href="#sec-6">6. Fossil</a></li>
+<li><a href="#sec-7">7. Docbook</a></li>
+<li><a href="#sec-8">8. Maven</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> GnuPG</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+几乎所有的 Linux 发行版默认都会自动安装 GnuPG，但 Mac OSX 下需要自己手动安装，这里我采用的是源码编译的方式。
+由于采用源码编译，首先我们要安装 Xcode，这里的装的 Xcode 版本是 5.0.2，装好后启动一下，会自动安装
+command line tools。
+</p>
+
+<p>
+在编译 GnuPG 以前，还需要编译安装下面的类库。
+</p>
+<pre class="example">
+$ curl -O ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.13.tar.bz2
+$ tar xzvf libgpg-error-1.13.tar.bz2
+$ cd libgpg-error-1.13
+$ ./configure &amp;&amp; make &amp;&amp; sudo make install
+
+$ curl -O ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.6.2.tar.bz2
+$ tar xzvf libgcrypt-1.6.2.tar.bz2
+$ cd libgcrypt-1.6.2
+$ ./configure --disable-asm
+$ make &amp;&amp; sudo make install
+
+$ curl -O ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.1.2.tar.bz2
+$ tar xzvf libassuan-2.1.2.tar.bz2
+$ cd libassuan-2.1.2
+$ ./configure &amp;&amp; make &amp;&amp; sudo make install
+
+$ curl -O ftp://ftp.gnupg.org/gcrypt/libksba/libksba-1.3.0.tar.bz2
+$ tar xzvf libksba-1.3.0.tar.bz2
+$ cd libksba-1.3.0
+$ ./configure &amp;&amp; make &amp;&amp; sudo make install
+
+$ curl -O ftp://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz
+$ tar xzvf pth-2.0.7.tar.gz 
+$ cd pth-2.0.7
+$ ./configure &amp;&amp; make &amp;&amp; sudo make install
+</pre>
+
+<p>
+最后编译安装 gnupg，版本为 1.4.18。
+</p>
+<pre class="example">
+$ curl -O ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.18.tar.bz2
+$ openssl sha1 gnupg-1.4.18.tar.bz2
+$ tar xzvf gnupg-1.4.18.tar.bz2
+$ cd gnupg-1.4.18
+$ ./configure
+$ make
+$ make check
+$ sudo make install
+</pre>
+<p>
+装好后就可以导入我的私钥和公钥了。导入后记得查看一下。
+</p>
+<pre class="example">
+$ gpg --allow-secret-key-import --import secret.gpg.key
+$ gpg --import public.gpg.key
+$ gpg --list-keys
+$ gpg --list-secret-keys
+</pre>
+<p>
+参考文档：
+</p>
+<ul class="org-ul">
+<li><a href="http://macgpg.sourceforge.net/docs/howto-build-gpg-osx.txt.asc">http://macgpg.sourceforge.net/docs/howto-build-gpg-osx.txt.asc</a>
+</li>
+<li><a href="http://lists.gnupg.org/pipermail/gnupg-devel/2013-November/028028.html">http://lists.gnupg.org/pipermail/gnupg-devel/2013-November/028028.html</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Java</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Linux 下我是通过软链接的方式来切换不同的 JDK 和 JRE 版本，<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">官网下载</a> 相应的版本（通常是 x64 版本）到 /usr/java 目录下。
+</p>
+<pre class="example">
+$ sudo mv ~/Downloads/jdk-7u25-linux-x64.tar.gz /usr/java/
+$ cd /usr/java
+$ sudo tar xzvf jdk-7u25-linux-x64.tar.gz
+$ sudo ln -sf /usr/java/jdk1.7.0_25/ /usr/java/default
+</pre>
+
+<p>
+相关的环境变量如 JAVA_HOME 通过下面的软链接进行加载：
+</p>
+<pre class="example">
+$ ln -sf ~/Projects/gaixie/bitorb/dot.bash_profile ~/.bash_profile
+</pre>
+
+<p>
+Mac OSX 下只需 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">官网下载</a> 相应的 dmg 文件，然后按官方的安装教程进行安装，详细过程见参考文档。安装完成后，使用 java_home 命令运行其它的 JDK 版本：
+</p>
+<pre class="example">
+$ java -version
+java version "1.7.0_25"
+Java(TM) SE Runtime Environment (build 1.7.0_25-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 23.25-b01, mixed mode)
+
+$ /usr/libexec/java_home -v 1.7.0_07 --exec javac -version
+</pre>
+
+<p>
+通过下面语句删除无用的版本：
+</p>
+<pre class="example">
+$ cd /Library/Java/JavaVirtualMachines/
+$ sudo rm -rf jdk1.7.0_07.jdk/
+</pre>
+<p>
+参考文档：
+</p>
+<ul class="org-ul">
+<li><a href="http://docs.oracle.com/javase/7/docs/webnotes/install/mac/mac-jdk.html">JDK 7 Installation for Mac OS X</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Git</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+如果我们已经安装了默认的 Git，现在想通过源码编译升级到最新的版本。首先要 clone
+一份 Git 源码到 /usr/local/src 目录下，然后安装编译依赖的软件包。
+</p>
+<pre class="example">
+$ cd /usr/local/src
+$ sudo git clone https://github.com/git/git.git
+$ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-CPAN
+</pre>
+<p>
+编译安装到 /usr/local/bin 目录下，之前系统默认的 Git 通常被安装在 /usr/bin 目录下。
+最后删除系统默认安装的 git，并将当前 session指向新安装的 git，或者重启机器也行。
+</p>
+<pre class="example">
+$ cd /usr/local/src/git/
+$ sudo make prefix=/usr/local all
+$ sudo make prefix=/usr/local install
+
+$ sudo yum erase git
+$ hash -r
+$ type git
+</pre>
+<p>
+Mac OSX 下 git 会被包含在 Xcode 中一起被安装，不过版本偏低。要想升级到最新版本，
+可以直接<a href="http://code.google.com/p/git-osx-installer/">下载</a> dmg 文件，根据里面的 README 说明进行安装。或者通过下面命令进行源码编译安装。
+</p>
+<pre class="example">
+$ mkdir /usr/local/src
+$ cd /usr/local/src
+$ git clone git://git.kernel.org/pub/scm/git/git.git
+$ cd /usr/local/src/git/
+$ make prefix=/usr/local all
+$ sudo make prefix=/usr/local install
+
+$ sudo rm /usr/bin/git*
+$ hash -r
+$ type git
+</pre>
+<p>
+与 Linux 相比，除了删除默认 git 的语句不同，并且不需要手动安装编译依赖的包，其它的语句没什么区别。
+不过每次 app store 升级 xcode，也会同时升级内置的 git ，还需要手动切换到你自己编译的 git，有点麻烦，
+我还是老老实实用 Xcode 自带的 git 就好了。
+</p>
+
+<p>
+最后将 git 的全局配置文件通过下面的软链接进行加载：
+</p>
+<pre class="example">
+$ ln -sf ~/Projects/gaixie/bitorb/dot.gitconfig ~/.gitconfig
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Emacs</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Emacs 编译安装</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+作为我使用频率最高的软件，版本升级一定要及时，但从国内 clone 源码库实在是太慢了，只能通过下载最新的源码包进行编译安装。
+如果之前有通过 yum 安装过 Emacs， 要把它先卸载掉，然后从国内的镜像站下载源码包到 /usr/local/src 目录下，并解压缩。
+</p>
+<pre class="example">
+$ sudo yum erase emacs
+$ cd /usr/local/src
+$ sudo wget http://mirror.bjtu.edu.cn/gnu/emacs/emacs-24.3.tar.gz
+$ sudo tar xzvf emacs-24.3.tar.gz
+</pre>
+<p>
+安装一些编译依赖的软件包，我目前使用的只是 Emacs 的大众功能，所以只要求能成功编译就行。
+</p>
+<pre class="example">
+$ sudo yum groupinstall "Development Tools"
+$ sudo yum install gtk+-devel gtk2-devel
+$ sudo yum install libXpm-devel libpng-devel giflib-devel libtiff-devel libjpeg-devel
+$ sudo yum install ncurses-devel
+</pre>
+<p>
+下面进入解压缩后的源码目录，开始编译，安装，最后做一个执行文件的软链接。
+</p>
+<pre class="example">
+$ cd /usr/local/src/emacs-24.3
+$ sudo mkdir /usr/local/emacs
+$ sudo ./configure --prefix=/usr/local/emacs/24.3
+$ sudo make install
+$ sudo ln -sf /usr/local/emacs/24.3/bin/emacs /usr/local/bin/emacs
+</pre>
+<p>
+以上是 Fedora 下 Emacs 编译安装过程，Mac OSX 我直接从 <a href="http://emacsformacosx.com/">http://emacsformacosx.com/</a> 下载最新的 dmg 文件安装。
+这个网站的版本更新相当及时，大家评价很高。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Orgmode 编译安装</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+下面的操作 Linux 和 Mac OSX 没有区别，先在 ~/Projects/others/ 目录下 clone 最新的源码，注意不要修改
+这个路径，它已经被写死到 <a href="https://github.com/bitorb/bitorb/blob/master/dot.emacs.d/init-org.el">init-org.el</a> 配置文件中了。
+</p>
+<pre class="example">
+$ cd ~/Projects/others/
+$ git clone git://orgmode.org/org-mode.git
+$ cd org-mode/
+$ make autoloads
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Markdown 配置</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+和 Orgmode 一样，克隆源码到 ~/Projects/others/ 目录下。
+</p>
+<pre class="example">
+$ cd ~/Projects/others/
+$ git clone git://jblevins.org/git/markdown-mode.git
+</pre>
+<p>
+参考文档：
+</p>
+<ul class="org-ul">
+<li><a href="http://jblevins.org/projects/markdown-mode/">Emacs Markdown mode</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Emacs 配置</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+在前面 Emacs 及各种模式安装完成后，最后做的是 Emacs 配置，Linux 和 Mac OSX 没有区别，还是通过目录软链接的方式，
+注意如果之前有 ~/.emacs.d 目录或者是 ~/.emacs 文件，备份一下，直接删掉，我所有的配置都在  <a href="https://github.com/bitorb/bitorb">bitorb 项目</a> 中。
+</p>
+<pre class="example">
+$ ln -sf ~/Projects/gaixie/bitorb/dot.emacs.d/ ~/.emacs.d
+</pre>
+
+<p>
+到这里位置，Emacs 的配置就结束了，进入 Emacs，并检查相关的版本是否正确。
+</p>
+<pre class="example">
+$ emacs
+
+M-x version
+M-x org-version
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Thunderbird</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+选择 Thunderbird 作为我的邮件客户端的主要原因是它可以同时安装在 Linux 和 Mac OSX 上，相互的数据迁移与恢复比较方便。
+而且这货目前市场占有率那么高，稳定性和易用性应该也不是问题。首先去 <a href="http://www.mozilla.org/zh-CN/thunderbird/">官网下载</a> 相应的版本。
+</p>
+
+<p>
+如果是 Linux，执行下面的命令：
+</p>
+<pre class="example">
+$ sudo mkdir /usr/local/thunderbird
+$ sudo tar xvf thunderbird-17.0.6.tar.bz2 -C /usr/local/thunderbird/
+$ sudo mv /usr/local/thunderbird/thunderbird/ /usr/local/thunderbird/17.0.6
+$ sudo ln -sf /usr/local/thunderbird/17.0.6/thunderbird /usr/local/bin/thunderbird
+$ sudo ln -sf /usr/local/thunderbird/17.0.6/chrome/icons/default/default256.png /usr/share/pixmaps/thunderbird.png
+</pre>
+<p>
+上面是我习惯的安装目录，为了以后装新版本方便，做一个软链接到 /usr/local/bin。图标的软链接是为了 GNOME 3 下的桌面图标用的。
+然后要在 ./local/share/applications 目录下创建一个 <a href="https://github.com/bitorb/bitorb/blob/master/dot.local/share/applications/mozilla-thunderbird.desktop">mozilla-thunderbird.desktop</a> 文件。这个文件我已经通过 <a href="https://github.com/bitorb/bitorb">bitorb 项目</a> clone 
+到我的本地了，只要做一下目录链接。注意如果 applications 目录已存在，要删除掉。如果已做软链接，就不用执行下面的语句。
+</p>
+<pre class="example">
+$ ln -sf ~/Projects/gaixie/bitorb/dot.local/share/applications/ ~/.local/share/applications
+</pre>
+<p>
+最后通过 ALT+F2 r 刷新 gnome，就可以看到 Thunderbird 的启动图标了。启动后会创建一个 ~/.thunderbird 配置目录，把之前备份的
+数据文件恢复过来，要先把 thunderbird 停掉。
+</p>
+<pre class="example">
+$ rm -rf ~/.thunderbird/xxxxxxxx.default/*
+$ cp -rf ~/backup/yyyyyyyy/default/* ~/.thunderbird/xxxxxxxx.default/
+</pre>
+<p>
+Mac OSX 下的安装就简单很多了，直接通过 dmg 文件安装。不用做任何软链接，唯一要注意的是它的配置目录在 ~/Library/Thunderbird 下。
+用了一段时间，感觉没有 Mac 自带的邮件客户端稳定，卸载了。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Fossil</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Linux 和 Mac OSX 都采用源码编译方式安装，先从 <a href="http://www.fossil-scm.org/download.html">官网下载</a> 最新的源码包，编译后得到 fossil 可执行文件 ，直接复制到 /usr/local/bin 目录下，
+因为只有一个文件，就不做软链接了。
+</p>
+<pre class="example">
+$ tar xvf fossil-src-20130618210923.tar
+$ cd fossil-src-20130618210923
+$ ./configure --with-openssl=none
+$ make
+$ sudo mv fossil /usr/local/bin
+</pre>
+<p>
+Linux 不配置 cgi，只通过 fossil ui 或者是 fossil server 来提供对外服务。 
+下面的配置都是针对 Mac OSX 环境。首先在 /Library/WebServer/CGI-Executables 目录创建如下内容的 fsl.cgi 文件。
+</p>
+<pre class="example">
+#!/usr/local/bin/fossil
+directory: /Users/tommy/Projects/fossils
+notfound: http://localhost/cgi-bin/fsl.cgi/tommy
+</pre>
+<p>
+创建一个仓库目录 ~/Projects/fossils，并设置权限让 _www 用户可写。
+</p>
+<pre class="example">
+$ mkdir ~/Projects/fossils
+$ sudo chown tommy:_www ~/Projects/fossils
+$ sudo chmod 775 ~/Projects/fossils
+
+# 克隆我的远程仓库
+$ cd ~/Projects/fossils
+$ fossil clone http://user:password@x.x.x.x:8080/index tommy.fossil
+$ chmod 664 tommy.fossil
+</pre>
+<p>
+参考文档：
+</p>
+<ul class="org-ul">
+<li><a href="http://www.editrocket.com/articles/perl_apache_mac.html">Running Perl CGI on the Mac OS X Apache Web Server</a>
+</li>
+<li><a href="http://bitorb.wordpress.com/2013/06/05/centos-%E4%B8%8B%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85-fossil-%E5%85%AC%E5%85%B1%E5%BA%93/">CentOS 下配置安装 Fossil 公共库</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Docbook</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+从 <a href="http://sourceforge.net/projects/docbook/files/docbook-xsl-ns/">官网下载</a> 下载最新的 docbook-xml-ns 软件包，这里试用的是 1.78.1 版本。下面命令也适用于 Mac OSX。
+</p>
+<pre class="example">
+$ tar xjvf docbook-xsl-ns-1.78.1.tar.bz2
+$ sudo mv ~/Downloads/docbook-xsl-ns-1.78.1 /usr/local/share/
+$ sudo ln -s /usr/local/share/docbook-xsl-ns-1.78.1 /usr/local/share/docbook-xsl-ns
+</pre>
+<p>
+最后设置环境变量 DOCBOOK_PATH，详见 <a href="https://github.com/bitorb/bitorb/blob/master/dot.bash_profile">~/.bash_profile</a> 文件。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Maven</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+从 Mac OSX Mavericks (10.9) 以后，不再默认安装 Maven 了，需要通过下面命令手动安装(也适用 Linux)。
+首先从 <a href="http://maven.apache.org/download.cgi">官网下载</a> 最新的安装文件，这里 apache-maven-3.2.1-bin.tar.gz 。
+</p>
+<pre class="example">
+$ sudo mkdir /usr/local/maven
+$ sudo mv ~/Downloads/apache-maven-3.2.1-bin.tar.gz /usr/local/maven/
+$ cd /usr/local/maven/
+$ sudo tar xzvf apache-maven-3.2.1-bin.tar.gz
+$ sudo ln -sf /usr/local/maven/apache-maven-3.2.1 /usr/local/maven/default
+</pre>
+<p>
+最后设置环境变量 M2_HOME，详见 <a href="https://github.com/bitorb/bitorb/blob/master/dot.bash_profile">~/.bash_profile</a> 文件。
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
