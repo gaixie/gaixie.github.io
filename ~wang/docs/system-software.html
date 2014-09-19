@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
 <head>
 <title>Software Installation</title>
-<!-- 2014-09-19 Fri 21:57 -->
+<!-- 2014-09-19 Fri 22:22 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Tommy Wang" />
@@ -31,11 +31,10 @@
 <li><a href="#sec-4-5">4.5. Emacs 配置</a></li>
 </ul>
 </li>
-<li><a href="#sec-5">5. Thunderbird</a></li>
-<li><a href="#sec-6">6. Fossil</a></li>
-<li><a href="#sec-7">7. Docbook</a></li>
-<li><a href="#sec-8">8. Maven</a></li>
-<li><a href="#sec-9">9. Gradle</a></li>
+<li><a href="#sec-5">5. Fossil</a></li>
+<li><a href="#sec-6">6. Docbook</a></li>
+<li><a href="#sec-7">7. Maven</a></li>
+<li><a href="#sec-8">8. Gradle</a></li>
 </ul>
 </div>
 </div>
@@ -342,48 +341,8 @@ M-x org-version
 </div>
 
 <div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Thunderbird</h2>
+<h2 id="sec-5"><span class="section-number-2">5</span> Fossil</h2>
 <div class="outline-text-2" id="text-5">
-<p>
-选择 Thunderbird 作为我的邮件客户端的主要原因是它可以同时安装在 Linux 和 Mac OSX 上，相互的数据迁移与恢复比较方便。
-而且这货目前市场占有率那么高，稳定性和易用性应该也不是问题。首先去 <a href="http://www.mozilla.org/zh-CN/thunderbird/">官网下载</a> 相应的版本。
-</p>
-
-<p>
-如果是 Linux，执行下面的命令：
-</p>
-<pre class="example">
-$ sudo mkdir /usr/local/thunderbird
-$ sudo tar xvf thunderbird-17.0.6.tar.bz2 -C /usr/local/thunderbird/
-$ sudo mv /usr/local/thunderbird/thunderbird/ /usr/local/thunderbird/17.0.6
-$ sudo ln -sf /usr/local/thunderbird/17.0.6/thunderbird /usr/local/bin/thunderbird
-$ sudo ln -sf /usr/local/thunderbird/17.0.6/chrome/icons/default/default256.png /usr/share/pixmaps/thunderbird.png
-</pre>
-<p>
-上面是我习惯的安装目录，为了以后装新版本方便，做一个软链接到 /usr/local/bin。图标的软链接是为了 GNOME 3 下的桌面图标用的。
-然后要在 ./local/share/applications 目录下创建一个 <a href="https://github.com/bitorb/bitorb/blob/master/dot.local/share/applications/mozilla-thunderbird.desktop">mozilla-thunderbird.desktop</a> 文件。这个文件我已经通过 <a href="https://github.com/bitorb/bitorb">bitorb 项目</a> clone 
-到我的本地了，只要做一下目录链接。注意如果 applications 目录已存在，要删除掉。如果已做软链接，就不用执行下面的语句。
-</p>
-<pre class="example">
-$ ln -sf ~/Projects/gaixie/bitorb/dot.local/share/applications/ ~/.local/share/applications
-</pre>
-<p>
-最后通过 ALT+F2 r 刷新 gnome，就可以看到 Thunderbird 的启动图标了。启动后会创建一个 ~/.thunderbird 配置目录，把之前备份的
-数据文件恢复过来，要先把 thunderbird 停掉。
-</p>
-<pre class="example">
-$ rm -rf ~/.thunderbird/xxxxxxxx.default/*
-$ cp -rf ~/backup/yyyyyyyy/default/* ~/.thunderbird/xxxxxxxx.default/
-</pre>
-<p>
-Mac OSX 下的安装就简单很多了，直接通过 dmg 文件安装。不用做任何软链接，唯一要注意的是它的配置目录在 ~/Library/Thunderbird 下。
-用了一段时间，感觉没有 Mac 自带的邮件客户端稳定，卸载了。
-</p>
-</div>
-</div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Fossil</h2>
-<div class="outline-text-2" id="text-6">
 <p>
 Linux 和 Mac OSX 都采用源码编译方式安装，先从 <a href="http://www.fossil-scm.org/download.html">官网下载</a> 最新的源码包，编译后得到 fossil 可执行文件 ，直接复制到 /usr/local/bin 目录下，
 因为只有一个文件，就不做软链接了。
@@ -429,9 +388,9 @@ $ chmod 664 tommy.fossil
 </div>
 </div>
 
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Docbook</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Docbook</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 从 <a href="http://sourceforge.net/projects/docbook/files/docbook-xsl-ns/">官网下载</a> 下载最新的 docbook-xml-ns 软件包，这里试用的是 1.78.1 版本。下面命令也适用于 Mac OSX。
 </p>
@@ -445,9 +404,9 @@ $ sudo ln -s /usr/local/share/docbook-xsl-ns-1.78.1 /usr/local/share/docbook-xsl
 </p>
 </div>
 </div>
-<div id="outline-container-sec-8" class="outline-2">
-<h2 id="sec-8"><span class="section-number-2">8</span> Maven</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Maven</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 从 Mac OSX Mavericks (10.9) 以后，不再默认安装 Maven 了，需要通过下面命令手动安装(也适用 Linux)。
 首先从 <a href="http://maven.apache.org/download.cgi">官网下载</a> 最新的安装文件，这里 apache-maven-3.2.1-bin.tar.gz 。
@@ -487,9 +446,9 @@ $ vi ~/.m2/settings.xml
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-9" class="outline-2">
-<h2 id="sec-9"><span class="section-number-2">9</span> Gradle</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Gradle</h2>
+<div class="outline-text-2" id="text-8">
 <p>
 Gradle 的安装配置和 Maven 一样，先从 <a href="http://www.gradle.org/downloads">官网下载</a> 最新的安装文件。然后解压缩到指定目录。
 做好软链接。环境变量 GRADLE_HOME，见 <a href="https://github.com/bitorb/bitorb/blob/master/dot.bash_profile">~/.bash_profile</a> 文件。下面命令同时适用于 Mac OSX 和 Linux。
