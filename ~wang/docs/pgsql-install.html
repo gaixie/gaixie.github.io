@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
 <head>
 <title>PostgreSQL Installation</title>
-<!-- 2014-10-08 Wed 09:40 -->
+<!-- 2014-10-08 Wed 19:10 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Tommy Wang" />
@@ -142,10 +142,9 @@ $ sudo service iptables restart
 用 postgres 用户启动数据库，并允许外部客户端通过 5432 端口进行访问，只是本机自用的话就去掉 -i 的启动参数。
 </p>
 <pre class="example">
-$ sudo su -l postgres
-$ /usr/local/pgsql/default/bin/pg_ctl \
-    -D /var/lib/pgsql/default/data -o '-i -p 5432' \
-    -l /var/lib/pgsql/default/pgstartup.log start
+$ sudo -i -u postgres /usr/local/pgsql/default/bin/pg_ctl \
+                      -D /var/lib/pgsql/default/data -o '-i -p 5432' \
+                      -l /var/lib/pgsql/default/pgstartup.log start
 </pre>
 </div>
 </div>
