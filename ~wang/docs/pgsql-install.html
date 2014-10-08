@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
 <head>
 <title>PostgreSQL Installation</title>
-<!-- 2014-09-28 Sun 15:43 -->
+<!-- 2014-10-08 Wed 09:40 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Tommy Wang" />
@@ -25,8 +25,7 @@
 <li><a href="#sec-4">4. 创建一个数据库管理员用户</a></li>
 <li><a href="#sec-5">5. 数据库初始化</a></li>
 <li><a href="#sec-6">6. 数据库访问设置</a></li>
-<li><a href="#sec-7">7. 数据库的环境变量</a></li>
-<li><a href="#sec-8">8. 启动数据库</a></li>
+<li><a href="#sec-7">7. 启动数据库</a></li>
 </ul>
 </div>
 </div>
@@ -38,7 +37,7 @@
 Mac OSX 下只要装了 Xcode 就行，所有编译需要的工具和类库都有了。CentOS 下需要安装下面的软件包。
 </p>
 <pre class="example">
-$ sudo yum install make gcc readline-devel zlib-devel
+$ sudo yum install make gcc readline-devel zlib-devel flex bison
 </pre>
 </div>
 </div>
@@ -137,25 +136,16 @@ $ sudo service iptables restart
 </div>
 
 <div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> 数据库的环境变量</h2>
+<h2 id="sec-7"><span class="section-number-2">7</span> 启动数据库</h2>
 <div class="outline-text-2" id="text-7">
-<p>
-我的个人电脑上的 PostgreSQL，通常会设置几个环境变量，例如 PG_HOME, PGDATA 等，主要是操作方便，详见 <a href="https://github.com/bitorb/bitorb/blob/master/dot.bash_profile">~/.bash_profile</a> 文件。
-如果是服务器上的数据库，不建议设置环境变量，原生态命令更环保和安全。
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-8" class="outline-2">
-<h2 id="sec-8"><span class="section-number-2">8</span> 启动数据库</h2>
-<div class="outline-text-2" id="text-8">
 <p>
 用 postgres 用户启动数据库，并允许外部客户端通过 5432 端口进行访问，只是本机自用的话就去掉 -i 的启动参数。
 </p>
 <pre class="example">
-$ sudo -u postgres /usr/local/pgsql/default/bin/pg_ctl \
-                   -D /var/lib/pgsql/default/data -o '-i -p 5432' \
-                   -l /var/lib/pgsql/default/pgstartup.log start
+$ sudo su -l postgres
+$ /usr/local/pgsql/default/bin/pg_ctl \
+    -D /var/lib/pgsql/default/data -o '-i -p 5432' \
+    -l /var/lib/pgsql/default/pgstartup.log start
 </pre>
 </div>
 </div>
