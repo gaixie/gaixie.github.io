@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
 <head>
 <title>Software Installation</title>
-<!-- 2014-09-24 Wed 21:43 -->
+<!-- 2014-10-08 Wed 18:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Tommy Wang" />
@@ -178,6 +178,7 @@ $ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
 <p>
 编译安装到 /usr/local/bin 目录下，之前系统默认的 Git 通常被安装在 /usr/bin 目录下。
 最后删除系统默认安装的 git，并将当前 session指向新安装的 git，或者重启机器也行。
+如果是 Fedora，可能需要安装 vimdiff (vim-enhanced) 命令。
 </p>
 <pre class="example">
 $ cd /usr/local/src/git/
@@ -187,6 +188,8 @@ $ sudo make prefix=/usr/local install
 $ sudo yum erase git
 $ hash -r
 $ type git
+
+$ sudo yum install vim-enhanced
 </pre>
 <p>
 Mac OSX 下 git 会被包含在 Xcode 中一起被安装，不过版本偏低。要想升级到最新版本，
