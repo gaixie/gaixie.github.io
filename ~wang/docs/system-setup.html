@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
 <head>
 <title>System Setup</title>
-<!-- 2014-10-10 Fri 15:53 -->
+<!-- 2014-10-18 Sat 22:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Tommy Wang" />
@@ -103,11 +103,12 @@ $ hostnamectl set-hostname tomt60p.gaixie.org
 </p>
 
 <p>
-不太喜欢 Mac 下 Terminal 窗口显示的主机名，如果是 MacBook Pro 我会用下面命令把它改为 tommbp
+不太喜欢 Mac 下 Terminal 窗口显示的主机名，如果是 MacBook Pro 我会用下面命令把它改为 tommbp.local，若不加
+.local 的后缀，emacs 启动相当的慢。
 </p>
 <pre class="example">
 $ scutil --get HostName
-$ sudo scutil --set HostName tommbp
+$ sudo scutil --set HostName tommbp.local
 </pre>
 <p>
 参考文档：
