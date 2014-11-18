@@ -1,21 +1,21 @@
-table.container {
-    width:100%;
+
+header {
+    text-align: right;
 }
 
-td.content {
-    width:70%; 
-    text-align:left;
+nav {
+    text-align: right;
+    float: right;
+    padding-left: 80px;
 }
 
-td.logo {
-    text-align:right;
+section h1 {
+    text-align: center;
 }
 
-td.menu {
-    text-align:right; 
-    vertical-align:top;
-}
-
-.content h1 {
-    text-align:center; 
+footer {
+    clear: both;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #777777;
 }
