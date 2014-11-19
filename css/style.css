@@ -9,5 +9,6 @@ a img {
 pre {
     background-color: #EEEEEE;
     font-family: courier,monospace;
+    font-size: 85%;
     padding: 4px;
 }
