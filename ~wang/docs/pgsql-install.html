@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
 <head>
-<!-- 2016-01-05 Tue 17:51 -->
+<!-- 2016-01-05 Tue 21:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PostgreSQL Installation</title>
@@ -101,6 +101,7 @@ $ sudo chown postgres:postgres /var/lib/pgsql
 # 如果是 Mac OSX 应该是 _postgres:wheel 
 $ sudo chown _postgres:wheel /var/lib/pgsql
 
+# 如果是 Mac OSX 要将 sudo -u 后的 postgres 改为 _postgres，但最后的 -U postgres 不变
 $ sudo -u postgres mkdir /var/lib/pgsql/9.4
 $ sudo -u postgres ln -s /var/lib/pgsql/9.4 /var/lib/pgsql/default
 $ sudo -u postgres /usr/local/pgsql/default/bin/initdb \
