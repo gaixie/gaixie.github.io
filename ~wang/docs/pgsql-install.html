@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
 <head>
-<!-- 2016-01-02 Sat 23:56 -->
+<!-- 2016-01-05 Tue 17:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PostgreSQL Installation</title>
@@ -47,14 +47,12 @@ $ sudo yum install make gcc readline-devel zlib-devel flex bison
 <h2 id="orgheadline2"><span class="section-number-2">2</span> 下载最新的源码包</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Linux 下我喜欢把一些大软件的源码包下载到 /usr/local/src 目录下，Mac OSX 默认没有这个目录，需要创建一个，
-然后从 PostgreSQL <a href="http://www.postgresql.org/ftp/source/">官网下载</a> 最新的源码包。
+Linux 下我喜欢把源码包下载到 /usr/local/src 目录下，Mac OSX 默认没有这个目录，需要创建一个，
+参见：<a href="./system-setup.html">建立一个用来进行源码编译的目录</a>。然后从 PostgreSQL <a href="http://www.postgresql.org/ftp/source/">官网下载</a> 最新的源码包。
 </p>
 <pre class="example">
-$ sudo mkdir /usr/local/src
-$ cd /usr/local/src
-$ sudo curl -O http://ftp.postgresql.org/.../postgresql-9.4beta2.tar.gz
-$ sudo tar xzvf postgresql-9.4beta2.tar.gz
+$ curl -O https://ftp.postgresql.org/pub/source/v9.4.5/postgresql-9.4.5.tar.bz2
+$ tar xjvf postgresql-9.4.5.tar.bz2 -C /usr/local/src
 </pre>
 </div>
 </div>
@@ -63,15 +61,14 @@ $ sudo tar xzvf postgresql-9.4beta2.tar.gz
 <h2 id="orgheadline3"><span class="section-number-2">3</span> 编译安装到指定目录</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-将 9.4beta2 这个版本编译并安装到 /usr/local/pgsql/9.4beta2 这个目录下，然后为该目录创建一个 default的软链接，表示当先正在使用的数据库版本。
+将 9.4.5 这个版本编译并安装到 /usr/local/pgsql/9.4.5 这个目录下，然后为该目录创建一个 default的软链接，表示当先正在使用的数据库版本。
 </p>
 <pre class="example">
-$ cd /usr/local/src/postgresql-9.4beta2
-$ sudo ./configure --prefix=/usr/local/pgsql/9.4beta2
-$ sudo make
+$ cd /usr/local/src/postgresql-9.4.5
+$ ./configure --prefix=/usr/local/pgsql/9.4.5
+$ make
 $ sudo make install
-$ sudo make clean
-$ sudo ln -s /usr/local/pgsql/9.4beta2 /usr/local/pgsql/default
+$ sudo ln -s /usr/local/pgsql/9.4.5 /usr/local/pgsql/default
 </pre>
 </div>
 </div>
