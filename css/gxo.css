@@ -1,21 +1,100 @@
+body {
+    font-family: arial, sans-serif;
+}
+
+/* container
+   =========================================================== */
+
+.container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 8px 15px;
+}
+
+.container:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* header
+   =========================================================== */
 
 header {
-    text-align: right;
+    background-color: #0b0c0c;
 }
 
-nav {
-    text-align: right;
-    float: right;
-    padding-left: 80px;
+header .container a {
+    float: left;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1em;
+    text-decoration: none;
+    padding-top: 6px;
 }
 
-section h1 {
-    text-align: center;
+#header-bar {
+    height: 10px;
+    background-color: #005ea5;
+    max-width: 1020px;
+    margin: 0 15px;
 }
+
+/* main
+   =========================================================== */
+
+main .nav-list {
+    padding: 0;
+}
+
+main .nav-list li {
+    margin: 0 0 15px;
+    list-style: none;
+}
+
+main .nav-list li h3,
+main .nav-list li p {
+    margin: 0;
+    padding-right: 25px;
+}
+
+hr {
+    clear: both;
+    border-width: 5px 0 0;
+}
+
+/* footer
+   =========================================================== */
 
 footer {
-    clear: both;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    color: #777777;
+    border-top: 10px solid #005ea5;
+    background-color: #dee0e2;
+}
+
+footer .container p {
+    margin: 0;
+}
+
+/* 响应式样式 (Media Queries)
+   =========================================================== */
+
+/**
+ *  最小宽度如果是 641px, 遵循下面的设置。
+ */
+@media (min-width: 641px) {
+    /**
+     * .nav-list 每行显示三列 list，其它情况默认每行显示单列。
+     */
+    main .nav-list {
+        float: left;
+        width: 33.33333%;
+    }
+}
+
+
+@media (min-width: 1020px) {
+    #header-bar {
+        margin: 0 auto;
+    }
 }
