@@ -21,7 +21,7 @@ body {
    =========================================================== */
 
 header {
-    background-color: #0b0c0c;
+    background-color: #000000;
 }
 
 header .container a {
@@ -34,15 +34,17 @@ header .container a {
     padding-top: 6px;
 }
 
-#header-bar {
-    height: 10px;
-    background-color: #005ea5;
-    max-width: 1020px;
-    margin: 0 15px;
-}
 
 /* main
    =========================================================== */
+
+main .container {
+    padding-top: 0;
+}
+
+main .container header {
+    border-top: 10px solid #005ea5;
+}
 
 main .nav-list {
     padding: 0;
@@ -70,6 +72,7 @@ hr {
 footer {
     border-top: 10px solid #005ea5;
     background-color: #dee0e2;
+    font-size: 87.5%;
 }
 
 footer .container p {
@@ -89,12 +92,5 @@ footer .container p {
     main .nav-list {
         float: left;
         width: 33.33333%;
-    }
-}
-
-
-@media (min-width: 1020px) {
-    #header-bar {
-        margin: 0 auto;
     }
 }

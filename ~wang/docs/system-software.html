@@ -1,50 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
+<!DOCTYPE html>
+<html lang="cmn-Hans">
 <head>
-<!-- 2016-01-03 Sun 11:14 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Software Installation</title>
-<meta name="generator" content="Org-mode" />
-<meta name="author" content="Tommy Wang" />
-<link rel="shortcut icon" href="http://gaixie.org/favicon.ico?1" type="image/x-icon" />
-<link rel="stylesheet" href="http://gaixie.org/css/style.css" type="text/css" />
-<link rel="stylesheet" href="http://gaixie.org/css/org.css" type="text/css" />
+<!-- 2016-05-24 18:03:57 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>~ / 文档 / 常用软件的安装与配置</title>
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Tommy Wang">
+<link rel="stylesheet" href="https://cdn.bootcss.com/normalize/4.1.1/normalize.min.css">
+<link rel="stylesheet" href="../css/org.css">
 </head>
 <body>
+<div id="preamble" class="status">
+<div class="container">
+<a href="http://gaixie.org" class="logo">Gaixie.ORG</a>
+<a href="http://gaixie.org/~wang" class="logo wang">/~wang</a></div>
+</div>
 <div id="content">
-<h1 class="title">Software Installation</h1>
-<div id="table-of-contents">
+<header>
+<h1 class="title">~ / 文档 / 常用软件的安装与配置</h1>
+</header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. GnuPG</a></li>
-<li><a href="#orgheadline2">2. Java</a></li>
-<li><a href="#orgheadline3">3. Git</a></li>
-<li><a href="#orgheadline11">4. Emacs</a>
+<li><a href="#orgcecc629">1. GnuPG</a></li>
+<li><a href="#org9cb456f">2. Java</a></li>
+<li><a href="#orge3f7c2f">3. Git</a></li>
+<li><a href="#org574d073">4. Emacs</a>
 <ul>
-<li><a href="#orgheadline4">4.1. Emacs 编译安装</a></li>
-<li><a href="#orgheadline5">4.2. Orgmode 编译安装</a></li>
-<li><a href="#orgheadline6">4.3. Markdown 配置</a></li>
-<li><a href="#orgheadline7">4.4. Groovy 配置</a></li>
-<li><a href="#orgheadline8">4.5. Yaml 配置</a></li>
-<li><a href="#orgheadline9">4.6. Html 配置</a></li>
-<li><a href="#orgheadline10">4.7. Emacs 配置</a></li>
+<li><a href="#orgfb2e4e2">4.1. Emacs 编译安装</a></li>
+<li><a href="#org2161767">4.2. Orgmode 编译安装</a></li>
+<li><a href="#orgda88a13">4.3. Markdown 配置</a></li>
+<li><a href="#orge82a146">4.4. Groovy 配置</a></li>
+<li><a href="#org1d4306b">4.5. Yaml 配置</a></li>
+<li><a href="#orgd3986c3">4.6. Html 配置</a></li>
+<li><a href="#org3bb47f0">4.7. Emacs 配置</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline12">5. Fossil</a></li>
-<li><a href="#orgheadline13">6. Docbook</a></li>
-<li><a href="#orgheadline14">7. Maven</a></li>
-<li><a href="#orgheadline15">8. Gradle</a></li>
-<li><a href="#orgheadline16">9. Vim</a></li>
+<li><a href="#orge2e576f">5. Fossil</a></li>
+<li><a href="#orga5073c3">6. Docbook</a></li>
+<li><a href="#org21cb507">7. Maven</a></li>
+<li><a href="#orgef0ceb2">8. Gradle</a></li>
+<li><a href="#org6e115e9">9. Vim</a></li>
 </ul>
 </div>
-</div>
+</nav>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> GnuPG</h2>
+<div id="outline-container-orgcecc629" class="outline-2">
+<h2 id="orgcecc629"><span class="section-number-2">1</span> GnuPG</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 几乎所有的 Linux 发行版默认都会自动安装 GnuPG，但 Mac OSX 下需要自己手动安装，这里我采用的是源码编译的方式。
@@ -111,8 +114,8 @@ $ gpg --list-secret-keys
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Java</h2>
+<div id="outline-container-org9cb456f" class="outline-2">
+<h2 id="org9cb456f"><span class="section-number-2">2</span> Java</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Linux 下我是通过软链接的方式来切换不同的 JDK 和 JRE 版本，<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">官网下载</a> 相应的版本（通常是 x64 版本）到 /usr/java 目录下。
@@ -159,8 +162,8 @@ $ sudo rm -rf jdk1.7.0_07.jdk/
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Git</h2>
+<div id="outline-container-orge3f7c2f" class="outline-2">
+<h2 id="orge3f7c2f"><span class="section-number-2">3</span> Git</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 如果我们已经安装了默认的 Git，现在想通过源码编译升级到最新的版本。首先要 clone
@@ -219,11 +222,11 @@ $ ln -sf ~/Projects/gaixie/bitorb/dot.gitconfig ~/.gitconfig
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">4</span> Emacs</h2>
+<div id="outline-container-org574d073" class="outline-2">
+<h2 id="org574d073"><span class="section-number-2">4</span> Emacs</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">4.1</span> Emacs 编译安装</h3>
+</div><div id="outline-container-orgfb2e4e2" class="outline-3">
+<h3 id="orgfb2e4e2"><span class="section-number-3">4.1</span> Emacs 编译安装</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 作为我使用频率最高的软件，版本升级一定要及时，但从国内 clone 源码库实在是太慢了，只能通过下载最新的源码包进行编译安装。
@@ -262,8 +265,8 @@ $ sudo ln -sf /usr/local/emacs/24.3/bin/emacs /usr/local/bin/emacs
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">4.2</span> Orgmode 编译安装</h3>
+<div id="outline-container-org2161767" class="outline-3">
+<h3 id="org2161767"><span class="section-number-3">4.2</span> Orgmode 编译安装</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 下面的操作 Linux 和 Mac OSX 没有区别，先在 ~/Projects/others/ 目录下 clone 最新的源码，注意不要修改
@@ -278,8 +281,8 @@ $ make autoloads
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">4.3</span> Markdown 配置</h3>
+<div id="outline-container-orgda88a13" class="outline-3">
+<h3 id="orgda88a13"><span class="section-number-3">4.3</span> Markdown 配置</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 和 Orgmode 一样，克隆源码到 ~/Projects/others/ 目录下。
@@ -297,8 +300,8 @@ $ git clone git://jblevins.org/git/markdown-mode.git
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">4.4</span> Groovy 配置</h3>
+<div id="outline-container-orge82a146" class="outline-3">
+<h3 id="orge82a146"><span class="section-number-3">4.4</span> Groovy 配置</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 和 org 和 markdown 模式一样，直接克隆源码就行，唯一和官网介绍的方法有点不同的是修改了一下克隆出来的项目目录名。
@@ -316,8 +319,8 @@ $ git clone git://github.com/Groovy-Emacs-Modes/groovy-emacs-modes.git groovy-mo
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">4.5</span> Yaml 配置</h3>
+<div id="outline-container-org1d4306b" class="outline-3">
+<h3 id="org1d4306b"><span class="section-number-3">4.5</span> Yaml 配置</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 和 org 和 markdown 模式一样，直接克隆源码就行。
@@ -328,8 +331,8 @@ $ git clone git://github.com/yoshiki/yaml-mode.git
 </pre>
 </div>
 </div>
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">4.6</span> Html 配置</h3>
+<div id="outline-container-orgd3986c3" class="outline-3">
+<h3 id="orgd3986c3"><span class="section-number-3">4.6</span> Html 配置</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 Emacs 默认模式只能编辑纯 html 文件，碰到嵌入 javascript 或 css 代码段就不行了，
@@ -341,8 +344,8 @@ $ git clone git@github.com:fgallina/multi-web-mode.git
 </pre>
 </div>
 </div>
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">4.7</span> Emacs 配置</h3>
+<div id="outline-container-org3bb47f0" class="outline-3">
+<h3 id="org3bb47f0"><span class="section-number-3">4.7</span> Emacs 配置</h3>
 <div class="outline-text-3" id="text-4-7">
 <p>
 在前面 Emacs 及各种模式安装完成后，最后做的是 Emacs 配置，Linux 和 Mac OSX 没有区别，还是通过目录软链接的方式，
@@ -365,8 +368,8 @@ M-x org-version
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">5</span> Fossil</h2>
+<div id="outline-container-orge2e576f" class="outline-2">
+<h2 id="orge2e576f"><span class="section-number-2">5</span> Fossil</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Linux 和 Mac OSX 都采用源码编译方式安装，先从 <a href="http://www.fossil-scm.org/download.html">官网下载</a> 最新的源码包，编译后得到 fossil 可执行文件 ，直接复制到 /usr/local/bin 目录下，
@@ -411,8 +414,8 @@ $ chmod 664 tommy.fossil
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">6</span> Docbook</h2>
+<div id="outline-container-orga5073c3" class="outline-2">
+<h2 id="orga5073c3"><span class="section-number-2">6</span> Docbook</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 从 <a href="http://sourceforge.net/projects/docbook/files/docbook-xsl-ns/">官网下载</a> 下载最新的 docbook-xml-ns 软件包，这里试用的是 1.78.1 版本。下面命令也适用于 Mac OSX。
@@ -428,8 +431,8 @@ $ sudo ln -s /usr/local/share/docbook-xsl-ns-1.78.1 \
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">7</span> Maven</h2>
+<div id="outline-container-org21cb507" class="outline-2">
+<h2 id="org21cb507"><span class="section-number-2">7</span> Maven</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 从 Mac OSX Mavericks (10.9) 以后，不再默认安装 Maven 了，需要通过下面命令手动安装(也适用 Linux)。
@@ -471,8 +474,8 @@ $ vi ~/.m2/settings.xml
 </pre>
 </div>
 </div>
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">8</span> Gradle</h2>
+<div id="outline-container-orgef0ceb2" class="outline-2">
+<h2 id="orgef0ceb2"><span class="section-number-2">8</span> Gradle</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Gradle 的安装配置和 Maven 一样，先从 <a href="http://www.gradle.org/downloads">官网下载</a> 最新的安装文件。然后解压缩到指定目录。
@@ -487,8 +490,8 @@ $ sudo ln -sf /usr/local/gradle/gradle-2.1 /usr/local/gradle/default
 </pre>
 </div>
 </div>
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">9</span> Vim</h2>
+<div id="outline-container-org6e115e9" class="outline-2">
+<h2 id="org6e115e9"><span class="section-number-2">9</span> Vim</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 vimdiff 作为我默认的 git mergetool，它默认的 colorscheme 配色有问题，
@@ -503,6 +506,9 @@ $ ln -sf ~/Projects/gaixie/bitorb/dot.vimrc ~/.vimrc
 </pre>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+<div class="container"><p>Tommy Wang<br>2016-05-24 18:00:58<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p>
 </div>
 </body>
 </html>

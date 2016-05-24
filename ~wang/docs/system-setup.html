@@ -1,51 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
+<!DOCTYPE html>
+<html lang="cmn-Hans">
 <head>
-<!-- 2016-01-05 Tue 17:51 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>System Setup</title>
-<meta name="generator" content="Org-mode" />
-<meta name="author" content="Tommy Wang" />
-<link rel="shortcut icon" href="http://gaixie.org/favicon.ico?1" type="image/x-icon" />
-<link rel="stylesheet" href="http://gaixie.org/css/style.css" type="text/css" />
-<link rel="stylesheet" href="http://gaixie.org/css/org.css" type="text/css" />
+<!-- 2016-05-24 18:03:57 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>~ / 文档 / 重装系统时习惯的设置</title>
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Tommy Wang">
+<link rel="stylesheet" href="https://cdn.bootcss.com/normalize/4.1.1/normalize.min.css">
+<link rel="stylesheet" href="../css/org.css">
 </head>
 <body>
+<div id="preamble" class="status">
+<div class="container">
+<a href="http://gaixie.org" class="logo">Gaixie.ORG</a>
+<a href="http://gaixie.org/~wang" class="logo wang">/~wang</a></div>
+</div>
 <div id="content">
-<h1 class="title">System Setup</h1>
-<div id="table-of-contents">
+<header>
+<h1 class="title">~ / 文档 / 重装系统时习惯的设置</h1>
+</header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline4">1. 所有系统</a>
+<li><a href="#org951428a">1. 所有系统</a>
 <ul>
-<li><a href="#orgheadline1">1.1. Google Chrome 的同步设置</a></li>
-<li><a href="#orgheadline2">1.2. SSH 私钥导入</a></li>
-<li><a href="#orgheadline3">1.3. 建立一个用来进行源码编译的目录</a></li>
+<li><a href="#orgcc58092">1.1. Google Chrome 的同步设置</a></li>
+<li><a href="#orgfe80522">1.2. SSH 私钥导入</a></li>
+<li><a href="#orgbaefa6">1.3. 建立一个用来进行源码编译的目录</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline6">2. Linux</a>
+<li><a href="#org19bfad">2. Linux</a>
 <ul>
-<li><a href="#orgheadline5">2.1. 修改主机名</a></li>
+<li><a href="#org248f3">2.1. 修改主机名</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline8">3. Mac OSX</a>
+<li><a href="#orgd5c60de">3. Mac OSX</a>
 <ul>
-<li><a href="#orgheadline7">3.1. 修改显示的主机名</a></li>
+<li><a href="#org599b195">3.1. 修改显示的主机名</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
+</nav>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">1</span> 所有系统</h2>
+<div id="outline-container-org951428a" class="outline-2">
+<h2 id="org951428a"><span class="section-number-2">1</span> 所有系统</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Google Chrome 的同步设置</h3>
+</div><div id="outline-container-orgcc58092" class="outline-3">
+<h3 id="orgcc58092"><span class="section-number-3">1.1</span> Google Chrome 的同步设置</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 设置 &#x2013;&gt; 高级同步设置 &#x2013;&gt; 选择要同步的数据类型
@@ -60,8 +63,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> SSH 私钥导入</h3>
+<div id="outline-container-orgfe80522" class="outline-3">
+<h3 id="orgfe80522"><span class="section-number-3">1.2</span> SSH 私钥导入</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 无论什么操作系统，安装后我首先做的就是导入 SSH 私钥。
@@ -75,8 +78,8 @@ $ chmod 600 ~/.ssh/id_rsa
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 建立一个用来进行源码编译的目录</h3>
+<div id="outline-container-orgbaefa6" class="outline-3">
+<h3 id="orgbaefa6"><span class="section-number-3">1.3</span> 建立一个用来进行源码编译的目录</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Linux 通常默认已经有 /usr/local/src 目录，只需设下权限，以后编译可少输几个 sudo。
@@ -91,11 +94,11 @@ $ sudo chmod u+rwx /usr/local/src/
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">2</span> Linux</h2>
+<div id="outline-container-org19bfad" class="outline-2">
+<h2 id="org19bfad"><span class="section-number-2">2</span> Linux</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.1</span> 修改主机名</h3>
+</div><div id="outline-container-org248f3" class="outline-3">
+<h3 id="org248f3"><span class="section-number-3">2.1</span> 修改主机名</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 hostnamectl 命令会在 /etc 目录下生成一个 hostname 文件。
@@ -107,11 +110,11 @@ $ hostnamectl set-hostname tomt60p.gaixie.org
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">3</span> Mac OSX</h2>
+<div id="outline-container-orgd5c60de" class="outline-2">
+<h2 id="orgd5c60de"><span class="section-number-2">3</span> Mac OSX</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">3.1</span> 修改显示的主机名</h3>
+</div><div id="outline-container-org599b195" class="outline-3">
+<h3 id="org599b195"><span class="section-number-3">3.1</span> 修改显示的主机名</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 不太喜欢 Mac 下 Terminal 窗口显示的主机名，如果是 MacBook Pro 我会用下面命令把它改为 tommbp.local，若不加
@@ -130,6 +133,9 @@ $ sudo scutil --set HostName tommbp.local
 </div>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+<div class="container"><p>Tommy Wang<br>2016-05-24 17:52:27<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p>
 </div>
 </body>
 </html>
