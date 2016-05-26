@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cmn-Hans">
 <head>
-<!-- 2016-05-24 18:03:59 -->
+<!-- 2016-05-25 22:06:41 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>~ / 文档 / Emacs 下程序的调试</title>
@@ -23,19 +23,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3360904">1. 使用 GDB 调试 C 或 C++ 程序</a>
+<li><a href="#orgfb1348e">1. 使用 GDB 调试 C 或 C++ 程序</a>
 <ul>
-<li><a href="#orgb09b491">1.1. 编译程序</a></li>
-<li><a href="#orga5cb504">1.2. 在 Emacs 中打开 GDB</a></li>
-<li><a href="#org6e0d9b0">1.3. GDB 常用命令</a></li>
+<li><a href="#orgb5db5c7">1.1. 编译程序</a></li>
+<li><a href="#orgdd64119">1.2. 在 Emacs 中打开 GDB</a></li>
+<li><a href="#org7340c8a">1.3. GDB 常用命令</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org3360904" class="outline-2">
-<h2 id="org3360904"><span class="section-number-2">1</span> 使用 GDB 调试 C 或 C++ 程序</h2>
+<div id="outline-container-orgfb1348e" class="outline-2">
+<h2 id="orgfb1348e"><span class="section-number-2">1</span> 使用 GDB 调试 C 或 C++ 程序</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 GDB 是 GNU 的调试器，它可以让您查看程序的内部结构、打印变量值、
@@ -43,8 +43,8 @@ GDB 是 GNU 的调试器，它可以让您查看程序的内部结构、打印�
 它和 Emacs 算是同门，很容易进行集成。
 </p>
 </div>
-<div id="outline-container-orgb09b491" class="outline-3">
-<h3 id="orgb09b491"><span class="section-number-3">1.1</span> 编译程序</h3>
+<div id="outline-container-orgb5db5c7" class="outline-3">
+<h3 id="orgb5db5c7"><span class="section-number-3">1.1</span> 编译程序</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 假设我们有一个程序 hello.cpp。
@@ -70,8 +70,8 @@ $ g++ -g -o hello hello.cpp
 </div>
 </div>
 
-<div id="outline-container-orga5cb504" class="outline-3">
-<h3 id="orga5cb504"><span class="section-number-3">1.2</span> 在 Emacs 中打开 GDB</h3>
+<div id="outline-container-orgdd64119" class="outline-3">
+<h3 id="orgdd64119"><span class="section-number-3">1.2</span> 在 Emacs 中打开 GDB</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 在 Emacs 编辑 hello.cpp 文件窗口下，通过下面命令启动一个独立的 gdb 窗口：
@@ -85,8 +85,8 @@ M-x gdb
 </div>
 </div>
 
-<div id="outline-container-org6e0d9b0" class="outline-3">
-<h3 id="org6e0d9b0"><span class="section-number-3">1.3</span> GDB 常用命令</h3>
+<div id="outline-container-org7340c8a" class="outline-3">
+<h3 id="org7340c8a"><span class="section-number-3">1.3</span> GDB 常用命令</h3>
 <div class="outline-text-3" id="text-1-3">
 <table>
 
@@ -177,7 +177,7 @@ $ sudo debuginfo-install glibc libgcc libstdc++
 </div>
 </div></div>
 <div id="postamble" class="status">
-<div class="container"><p>Tommy Wang<br>2016-05-24 17:59:23<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p>
+<div class="container"><p>Tommy Wang<br>2016-05-24 17:59:23<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
 </div>
 </body>
 </html>
