@@ -1,5 +1,5 @@
 body {
-    font-family: arial, sans-serif;
+    font-family: sans-serif;
 }
 
 /* container
@@ -27,7 +27,6 @@ header {
 header .container a {
     float: left;
     color: white;
-    font-weight: bold;
     font-size: 24px;
     line-height: 1em;
     text-decoration: none;
