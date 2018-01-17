@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cmn-Hans">
 <head>
-<!-- 2016-05-25 22:06:39 -->
+<!-- 2018-01-17 11:40:04 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>~ / 文档 / 源码编译安装 PostgreSQL</title>
@@ -23,19 +23,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org568e22f">1. 编译环境</a></li>
-<li><a href="#orgb627d40">2. 下载最新的源码包</a></li>
-<li><a href="#org1a0a15d">3. 编译安装到指定目录</a></li>
-<li><a href="#orga4de36">4. 创建一个数据库管理员用户</a></li>
-<li><a href="#org37c5491">5. 数据库初始化</a></li>
-<li><a href="#org6c5a4e9">6. 数据库访问设置</a></li>
-<li><a href="#org1e48e40">7. 启动数据库</a></li>
+<li><a href="#org24ba42d">1. 编译环境</a></li>
+<li><a href="#org3f60578">2. 下载最新的源码包</a></li>
+<li><a href="#org699ef4e">3. 编译安装到指定目录</a></li>
+<li><a href="#org90f37e3">4. 创建一个数据库管理员用户</a></li>
+<li><a href="#org1327d2b">5. 数据库初始化</a></li>
+<li><a href="#org35f2f84">6. 数据库访问设置</a></li>
+<li><a href="#org3184f97">7. 启动数据库</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org568e22f" class="outline-2">
-<h2 id="org568e22f"><span class="section-number-2">1</span> 编译环境</h2>
+<div id="outline-container-org24ba42d" class="outline-2">
+<h2 id="org24ba42d"><span class="section-number-2">1</span> 编译环境</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Mac OSX 下只要装了 Xcode 就行，所有编译需要的工具和类库都有了。CentOS 下需要安装下面的软件包。
@@ -43,11 +43,25 @@ Mac OSX 下只要装了 Xcode 就行，所有编译需要的工具和类库都�
 <pre class="example">
 $ sudo yum install make gcc readline-devel zlib-devel flex bison
 </pre>
+
+<p>
+如果是从 git 仓库 checkout 出的源码，还需要额外安装下面两个包：
+</p>
+<pre class="example">
+$ sudo yum install flex bison
+</pre>
+
+<p>
+Debian 下通过下面命令安装编译需要的软件包：
+</p>
+<pre class="example">
+$ sudo aptitude install make gcc libreadline-dev zlib1g-dev
+</pre>
 </div>
 </div>
 
-<div id="outline-container-orgb627d40" class="outline-2">
-<h2 id="orgb627d40"><span class="section-number-2">2</span> 下载最新的源码包</h2>
+<div id="outline-container-org3f60578" class="outline-2">
+<h2 id="org3f60578"><span class="section-number-2">2</span> 下载最新的源码包</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Linux 下我喜欢把源码包下载到 /usr/local/src 目录下，Mac OSX 默认没有这个目录，需要创建一个，
@@ -60,8 +74,8 @@ $ tar xjvf postgresql-9.4.5.tar.bz2 -C /usr/local/src
 </div>
 </div>
 
-<div id="outline-container-org1a0a15d" class="outline-2">
-<h2 id="org1a0a15d"><span class="section-number-2">3</span> 编译安装到指定目录</h2>
+<div id="outline-container-org699ef4e" class="outline-2">
+<h2 id="org699ef4e"><span class="section-number-2">3</span> 编译安装到指定目录</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 将 9.4.5 这个版本编译并安装到 /usr/local/pgsql/9.4.5 这个目录下，然后为该目录创建一个 default的软链接，表示当先正在使用的数据库版本。
@@ -76,8 +90,8 @@ $ sudo ln -s /usr/local/pgsql/9.4.5 /usr/local/pgsql/default
 </div>
 </div>
 
-<div id="outline-container-orga4de36" class="outline-2">
-<h2 id="orga4de36"><span class="section-number-2">4</span> 创建一个数据库管理员用户</h2>
+<div id="outline-container-org90f37e3" class="outline-2">
+<h2 id="org90f37e3"><span class="section-number-2">4</span> 创建一个数据库管理员用户</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Mac OSX 下不能直接创建用户，因为新增的用户默认都有管理员权限，好在系统默认有一个 _postgres 用户可以直接用。
@@ -89,8 +103,8 @@ $ sudo useradd -c "PostgreSQL Server" postgres
 </div>
 </div>
 
-<div id="outline-container-org37c5491" class="outline-2">
-<h2 id="org37c5491"><span class="section-number-2">5</span> 数据库初始化</h2>
+<div id="outline-container-org1327d2b" class="outline-2">
+<h2 id="org1327d2b"><span class="section-number-2">5</span> 数据库初始化</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 创建一个目录 /var/lib/pgsql，用来存贮数据库的数据文件。并为 postgres 设置访问权限。
@@ -113,8 +127,8 @@ $ sudo -u postgres /usr/local/pgsql/default/bin/initdb \
 </div>
 </div>
 
-<div id="outline-container-org6c5a4e9" class="outline-2">
-<h2 id="org6c5a4e9"><span class="section-number-2">6</span> 数据库访问设置</h2>
+<div id="outline-container-org35f2f84" class="outline-2">
+<h2 id="org35f2f84"><span class="section-number-2">6</span> 数据库访问设置</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Mac OSX 主要是本机测试用，不用做下面的设置，如果是 CentOS 服务器上需要下面的设置。
@@ -138,11 +152,20 @@ $ sudo service iptables restart
 </div>
 </div>
 
-<div id="outline-container-org1e48e40" class="outline-2">
-<h2 id="org1e48e40"><span class="section-number-2">7</span> 启动数据库</h2>
+<div id="outline-container-org3184f97" class="outline-2">
+<h2 id="org3184f97"><span class="section-number-2">7</span> 启动数据库</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 用 postgres 用户启动数据库，并允许外部客户端通过 5432 端口进行访问，只是本机自用的话就去掉 -i 的启动参数。
+</p>
+<pre class="example">
+$ sudo -u postgres /usr/local/pgsql/default/bin/pg_ctl \
+                   -D /var/lib/pgsql/default/data -o '-i -p 5432' \
+                   -l /var/lib/pgsql/default/pgstartup.log start
+</pre>
+
+<p>
+正式数据库服务器的 postgres 用户会有自己的 HOME 目录，可以通过下面命令启动
 </p>
 <pre class="example">
 $ sudo -i -u postgres /usr/local/pgsql/default/bin/pg_ctl \
@@ -162,7 +185,7 @@ $ sudo -u _postgres /usr/local/pgsql/default/bin/pg_ctl \
 </div>
 </div>
 <div id="postamble" class="status">
-<div class="container"><p>Tommy Wang<br>2016-05-24 17:59:55<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+<div class="container"><p>Tommy Wang<br>2016-06-02 12:54:46<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
 </div>
 </body>
 </html>
