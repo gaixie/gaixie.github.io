@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+<!-- 2018-01-17 11:40:03 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>~ / 文档 / 制作可引导的系统安装优盘</title>
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Tommy Wang">
+<link rel="stylesheet" href="https://cdn.bootcss.com/normalize/4.1.1/normalize.min.css">
+<link rel="stylesheet" href="../css/org.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="container">
+<a href="http://gaixie.org" class="logo">Gaixie.ORG</a>
+<a href="http://gaixie.org/~wang" class="logo wang">/~wang</a></div>
+</div>
+<div id="content">
+<header>
+<h1 class="title">~ / 文档 / 制作可引导的系统安装优盘</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7c025d9">1. 制作 OSX 10.11 El Capitan 系统安装优盘</a>
+<ul>
+<li><a href="#orgb01f382">1.1. 参考文档</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org7c025d9" class="outline-2">
+<h2 id="org7c025d9"><span class="section-number-2">1</span> 制作 OSX 10.11 El Capitan 系统安装优盘</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>先进入 Mac Apple Store 下载一个最新版本的 El Capitan。同时准备一个至少 8G 容量的优盘。</li>
+<li><p>
+插入优盘，假设优盘的名字为 Untitled，终端运行下面命令：
+</p>
+<pre class="example">
+# sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/Untitled --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app --nointeraction
+</pre>
+<p>
+createinstallmedia 程序会将优盘的名字修改为 Install OS X El Capitan。处理过程比较慢，有时需要20分钟左右(USB2.0接口)。
+</p></li>
+<li>优盘插着重启机器，启动时按 Option 键，直到出引导界面，选择刚制作好的优盘进行引导并安装。</li>
+</ol>
+</div>
+<div id="outline-container-orgb01f382" class="outline-3">
+<h3 id="orgb01f382"><span class="section-number-3">1.1</span> 参考文档</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="http://www.macworld.com/article/2981585/operating-systems/how-to-make-a-bootable-os-x-10-11-el-capitan-installer-drive.html">How to make a bootable OS X 10.11 El Capitan installer drive</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="container"><p>Tommy Wang<br>2016-05-27 10:22:46<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+</div>
+</body>
+</html>
