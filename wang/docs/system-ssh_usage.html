@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+<!-- 2018-03-19 10:55:30 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>~ / 文档 / ssh 命令的使用</title>
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Tommy Wang">
+<link rel="stylesheet" href="https://cdn.bootcss.com/normalize/4.1.1/normalize.min.css">
+<link rel="stylesheet" href="../css/org.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="container">
+<a href="http://gaixie.org" class="logo">Gaixie.ORG</a>
+<a href="http://gaixie.org/wang" class="logo wang">/wang</a></div>
+</div>
+<div id="content">
+<header>
+<h1 class="title">~ / 文档 / ssh 命令的使用</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8092d1f">1. 外面的世界</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org8092d1f" class="outline-2">
+<h2 id="org8092d1f"><span class="section-number-2">1</span> 外面的世界</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+命令行下使用免密码的证书连接到服务器，最好远端和本地都别用默认的端口，你懂的。
+</p>
+<pre class="example">
+$ ssh -N -i ./id_rsa user@xxx.xxx.xxx.xxx -p port -D 127.0.0.1:xxxx
+</pre>
+
+<p>
+Mac 下可以通过系统偏好设置，让所有访问都走 SSH 通道。设置方法见最后的链接。
+如果在命令行使用 SOCKETS 访问，需要根据使用的软件单独设置。
+</p>
+
+<pre class="example">
+# 如果用 git 通过 https 访问，使用下面的命令。
+$ git clone https://github.com/bitorb/bitorb-org.git --config 'http.proxy=socks5://127.0.0.1:xxxx'
+
+# 如果 git 访问，用的是 ssh 协议，需要配置 ~/.ssh/config，增加
+Host github.com
+ProxyCommand nc -X 5 -x 127.0.0.1:xxxx %h %p
+
+# 如果用 curl 命令.
+curl --socks5 localhost:xxxx "http://www.google.com"
+</pre>
+
+<p>
+参考文档：
+</p>
+<ul class="org-ul">
+<li><a href="https://itk.org/Wiki/Git/Trouble#Firewall_Blocks_Port_9418">https://itk.org/Wiki/Git/Trouble#Firewall_Blocks_Port_9418</a></li>
+<li><a href="https://stackoverflow.com/questions/5529218/how-to-use-git-behind-a-proxy">https://stackoverflow.com/questions/5529218/how-to-use-git-behind-a-proxy</a></li>
+<li><a href="http://cms-sw.github.io/tutorial-proxy.html">http://cms-sw.github.io/tutorial-proxy.html</a></li>
+<li><a href="http://meshfields.de/git-ssh-through-socks-proxy/">http://meshfields.de/git-ssh-through-socks-proxy/</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="container"><p>Tommy Wang<br>2018-03-19 10:33:45<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+</div>
+</body>
+</html>
