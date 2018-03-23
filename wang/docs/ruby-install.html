@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+<!-- 2018-03-23 13:21:16 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>~ / 文档 / Ruby 及相关软件的安装</title>
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Tommy Wang">
+<link rel="stylesheet" href="https://cdn.bootcss.com/normalize/4.1.1/normalize.min.css">
+<link rel="stylesheet" href="../css/org.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="container">
+<a href="http://gaixie.org" class="logo">Gaixie.ORG</a>
+<a href="http://gaixie.org/wang" class="logo wang">/wang</a></div>
+</div>
+<div id="content">
+<header>
+<h1 class="title">~ / 文档 / Ruby 及相关软件的安装</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6854ad2">1. Debian 下通过 rbenv 和 ruby-build 安装不同版本的 ruby</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org6854ad2" class="outline-2">
+<h2 id="org6854ad2"><span class="section-number-2">1</span> Debian 下通过 rbenv 和 ruby-build 安装不同版本的 ruby</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+先安装编译 ruby 需要的依赖包，以及 clone rbenv 和 ruby-build 源码。
+</p>
+<pre class="example">
+$ sudo apt-get update
+$ sudo apt-get install autoconf bison build-essential \
+libssl-dev libyaml-dev libreadline6-dev zlib1g-dev \
+libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+
+$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc
+$ echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc
+
+$ source ~/.bashrc
+$ type rbenv
+
+$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+</pre>
+<p>
+安装 ruby 并使用 gem
+</p>
+<pre class="example">
+$ rbenv install -l
+$ rbenv install 2.5.0
+$ rbenv global 2.5.0
+$ ruby -v
+
+$ gem install bundler
+</pre>
+
+
+<p>
+参考文档：
+</p>
+<ul class="org-ul">
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-debian-8">https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-debian-8</a></li>
+<li><a href="https://github.com/rbenv/rbenv">https://github.com/rbenv/rbenv</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="container"><p>Tommy Wang<br>2018-03-23 12:39:20<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+</div>
+</body>
+</html>
