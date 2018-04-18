@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cmn-Hans">
 <head>
-<!-- 2018-01-17 12:16:13 -->
+<!-- 2018-03-26 14:41:28 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>~ / 文档 / 重装系统时习惯的设置</title>
@@ -33,11 +33,13 @@
 <li><a href="#orgbf63fa0">2. Linux</a>
 <ul>
 <li><a href="#org17a4e7d">2.1. 修改主机名</a></li>
+<li><a href="#org297a7f2">2.2. Debian Mate 环境变量</a></li>
 </ul>
 </li>
 <li><a href="#org1afba28">3. Mac OSX</a>
 <ul>
 <li><a href="#org01bbe0b">3.1. 修改显示的主机名</a></li>
+<li><a href="#org25287cb">3.2. 环境变量设置</a></li>
 </ul>
 </li>
 </ul>
@@ -108,8 +110,27 @@ $ hostnamectl set-hostname tomt60p.gaixie.org
 </pre>
 </div>
 </div>
-</div>
 
+<div id="outline-container-org297a7f2" class="outline-3">
+<h3 id="org297a7f2"><span class="section-number-3">2.2</span> Debian Mate 环境变量</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+目前常用的 Linux 系统是 Debian，桌面用的 Mate，因为进入 X 不会加载 .bash_profile 文件，每次都手工 source 加载，很不方便。决定改一下，
+方法就是做一个 environment 文件，将 OSX 和 Linux 都会用到的环境变量设置放在这个文件里，但后在各自系统默认的配置文件以 source 方式加载，而不是之前的软链接的方式。
+Debian 桌面启动是默认会加载 ~/.bashrc 文件，所以使用下面的命令。
+</p>
+<pre class="example">
+$ echo 'source ~/Projects/gaixie/bitorb/environment' &gt;&gt; ~/.bashrc
+</pre>
+<p>
+参考文档：
+</p>
+<ul class="org-ul">
+<li><a href="https://unix.stackexchange.com/questions/88106/why-doesnt-my-bash-profile-work">https://unix.stackexchange.com/questions/88106/why-doesnt-my-bash-profile-work</a></li>
+</ul>
+</div>
+</div>
+</div>
 <div id="outline-container-org1afba28" class="outline-2">
 <h2 id="org1afba28"><span class="section-number-2">3</span> Mac OSX</h2>
 <div class="outline-text-2" id="text-3">
@@ -132,10 +153,28 @@ $ sudo scutil --set HostName tommbp.local
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org25287cb" class="outline-3">
+<h3 id="org25287cb"><span class="section-number-3">3.2</span> 环境变量设置</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+和 Linux 下环境变量设置的方式一样，只不过 OSX 下加载的是 ~/.bash_profile 文件。
+</p>
+<pre class="example">
+$ echo 'source ~/Projects/gaixie/bitorb/environment' &gt;&gt; ~/.bash_profile
+</pre>
+<p>
+参考文档：
+</p>
+<ul class="org-ul">
+<li><a href="https://apple.stackexchange.com/questions/119711/why-doesnt-mac-os-x-source-bashrc/119713">https://apple.stackexchange.com/questions/119711/why-doesnt-mac-os-x-source-bashrc/119713</a></li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
-<div class="container"><p>Tommy Wang<br>2016-05-27 10:22:46<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+<div class="container"><p>Tommy Wang<br>2018-03-26 14:41:01<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
 </div>
 </body>
 </html>

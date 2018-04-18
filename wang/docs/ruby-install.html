@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cmn-Hans">
 <head>
-<!-- 2018-03-23 13:21:16 -->
+<!-- 2018-03-26 14:41:28 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>~ / 文档 / Ruby 及相关软件的安装</title>
@@ -24,6 +24,7 @@
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org6854ad2">1. Debian 下通过 rbenv 和 ruby-build 安装不同版本的 ruby</a></li>
+<li><a href="#orgba93520">2. OSX 通过 rbenv 和 ruby-build 安装不同版本的 ruby</a></li>
 </ul>
 </div>
 </nav>
@@ -41,11 +42,11 @@ libssl-dev libyaml-dev libreadline6-dev zlib1g-dev \
 libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
 
 $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-
-$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc
-$ echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc
-
-$ source ~/.bashrc
+</pre>
+<p>
+环境变量的设置，通过加载 <a href="https://github.com/bitorb/bitorb/blob/master/environment">environment</a> 文件，具体设置方法参考<a href="./system-setup.html">重装系统时的设置</a>。
+</p>
+<pre class="example">
 $ type rbenv
 
 $ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -72,9 +73,32 @@ $ gem install bundler
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orgba93520" class="outline-2">
+<h2 id="orgba93520"><span class="section-number-2">2</span> OSX 通过 rbenv 和 ruby-build 安装不同版本的 ruby</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+通过 homebrew 安装 rbenv 和 ruby-build。
+</p>
+<pre class="example">
+$ brew install rbenv ruby-build
+</pre>
+<p>
+环境变量的设置，通过加载 <a href="https://github.com/bitorb/bitorb/blob/master/environment">environment</a> 文件，具体设置方法参考<a href="./system-setup.html">重装系统时的设置</a>。
+</p>
+<pre class="example">
+$ rbenv install -l
+$ rbenv install 2.5.0
+$ rbenv global 2.5.0
+$ ruby -v
+
+$ gem install bundler
+</pre>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="container"><p>Tommy Wang<br>2018-03-23 12:39:20<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+<div class="container"><p>Tommy Wang<br>2018-03-26 13:22:11<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
 </div>
 </body>
 </html>

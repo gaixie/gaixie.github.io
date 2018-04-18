@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+<!-- 2018-04-18 14:37:17 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>~ / 文档 / TeX 及相关软件的安装</title>
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Tommy Wang">
+<link rel="stylesheet" href="https://cdn.bootcss.com/normalize/4.1.1/normalize.min.css">
+<link rel="stylesheet" href="../css/org.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="container">
+<a href="http://gaixie.org" class="logo">Gaixie.ORG</a>
+<a href="http://gaixie.org/wang" class="logo wang">/wang</a></div>
+</div>
+<div id="content">
+<header>
+<h1 class="title">~ / 文档 / TeX 及相关软件的安装</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org82e1a3d">1. OSX</a></li>
+<li><a href="#org672543f">2. Debian</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org82e1a3d" class="outline-2">
+<h2 id="org82e1a3d"><span class="section-number-2">1</span> OSX</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+直接安装 MacTeX 完全版，小硬盘可以选择下载 BasicTeX。下载后直接按照提示安装就行。
+在通过 tlmgr 安装软件前需要先自己升级一下。
+</p>
+<pre class="example">
+$ sudo tlmgr update --self
+</pre>
+
+<p>
+参考资料
+</p>
+<ul class="org-ul">
+<li><a href="http://www.tug.org/mactex/">http://www.tug.org/mactex/</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org672543f" class="outline-2">
+<h2 id="org672543f"><span class="section-number-2">2</span> Debian</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+和 Mac 一样也分完整版和基本版，直接命令行安装完整版。
+</p>
+<pre class="example">
+$ sudo apt-get install texlive-full
+</pre>
+
+<p>
+参考资料
+</p>
+<ul class="org-ul">
+<li><a href="https://milq.github.io/install-latex-ubuntu-debian/">https://milq.github.io/install-latex-ubuntu-debian/</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="container"><p>Tommy Wang<br>2018-04-18 14:11:58<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+</div>
+</body>
+</html>

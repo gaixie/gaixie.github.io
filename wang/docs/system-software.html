@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cmn-Hans">
 <head>
-<!-- 2018-01-17 12:16:13 -->
+<!-- 2018-04-18 14:37:17 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>~ / 文档 / 常用软件的安装与配置</title>
@@ -42,6 +42,7 @@
 <li><a href="#orgd1e744e">7. Maven</a></li>
 <li><a href="#orgd8cf0be">8. Gradle</a></li>
 <li><a href="#org0b7cdf7">9. Vim</a></li>
+<li><a href="#org304ff68">10. Sphinx</a></li>
 </ul>
 </div>
 </nav>
@@ -128,18 +129,8 @@ $ sudo ln -sf /usr/java/jdk1.7.0_25/ /usr/java/default
 </pre>
 
 <p>
-相关的环境变量如 JAVA_HOME 通过下面的软链接进行加载：
+相关的环境变量如 JAVA_HOME 单独环境变量文件加载，请参考<a href="./system-setup.html">重装系统时的设置</a>。
 </p>
-<pre class="example">
-$ ln -sf ~/Projects/gaixie/bitorb/dot.bash_profile ~/.bash_profile
-</pre>
-<p>
-需要注意的是 Debian 下 .bash_profile 只能在 login shell 下被加载，也就是通过 CTRL+ALT+Fn 切换到交互式终端进行进行登录才会被加载。
-在图形界面的终端下需要手动加载：
-</p>
-<pre class="example">
-$ source ~/.bash_profile
-</pre>
 
 <p>
 Mac OSX 下只需 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">官网下载</a> 相应的 dmg 文件，然后按官方的安装教程进行安装，详细过程见参考文档。安装完成后，使用 java_home 命令运行其它的 JDK 版本：
@@ -471,7 +462,7 @@ $ sudo ln -s /usr/local/share/docbook-xsl-ns-1.78.1 \
              /usr/local/share/docbook-xsl-ns
 </pre>
 <p>
-最后设置环境变量 DOCBOOK_PATH，详见 <a href="https://github.com/bitorb/bitorb/blob/master/dot.bash_profile">~/.bash_profile</a> 文件。
+最后设置环境变量 DOCBOOK_PATH，详见 <a href="https://github.com/bitorb/bitorb/blob/master/environment">environment</a> 文件，具体设置方法参考<a href="./system-setup.html">重装系统时的设置</a>。
 </p>
 
 <p>
@@ -498,7 +489,7 @@ $ sudo ln -sf /usr/local/maven/apache-maven-3.2.1 \
               /usr/local/maven/default
 </pre>
 <p>
-然后设置环境变量 M2_HOME，详见 <a href="https://github.com/bitorb/bitorb/blob/master/dot.bash_profile">~/.bash_profile</a> 文件。
+然后设置环境变量 M2_HOME，详见 <a href="https://github.com/bitorb/bitorb/blob/master/environment">environment</a> 文件，具体设置方法参考<a href="./system-setup.html">重装系统时的设置</a>。
 最后如果要 deploy 到远程库，需要配置一个 settings.xml 文件，可以直接从 maven 的安装目录复制一个过来修改。
 </p>
 <pre class="example">
@@ -530,7 +521,7 @@ $ vi ~/.m2/settings.xml
 <div class="outline-text-2" id="text-8">
 <p>
 Gradle 的安装配置和 Maven 一样，先从 <a href="http://www.gradle.org/downloads">官网下载</a> 最新的安装文件。然后解压缩到指定目录。
-做好软链接。环境变量 GRADLE_HOME，见 <a href="https://github.com/bitorb/bitorb/blob/master/dot.bash_profile">~/.bash_profile</a> 文件。下面命令同时适用于 Mac OSX 和 Linux。
+做好软链接。环境变量 GRADLE_HOME，详见 <a href="https://github.com/bitorb/bitorb/blob/master/environment">environment</a> 文件，具体设置方法参考<a href="./system-setup.html">重装系统时的设置</a>。下面命令同时适用于 Mac OSX 和 Linux。
 </p>
 <pre class="example">
 $ sudo mkdir /usr/local/gradle
@@ -557,9 +548,29 @@ $ ln -sf ~/Projects/gaixie/bitorb/dot.vimrc ~/.vimrc
 </pre>
 </div>
 </div>
+<div id="outline-container-org304ff68" class="outline-2">
+<h2 id="org304ff68"><span class="section-number-2">10</span> Sphinx</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Kernel 的官方文档工具，直接通过 pip 安装本地用户目录。Emacs 已经内置对 reStructuredText 模式的支持。
+</p>
+<pre class="example">
+$ pip install --user sphinx
+</pre>
+<p>
+参考文档
+</p>
+<ul class="org-ul">
+<li><a href="https://stackoverflow.com/questions/38112756/how-do-i-access-packages-installed-by-pip-user">https://stackoverflow.com/questions/38112756/how-do-i-access-packages-installed-by-pip-user</a></li>
+<li><a href="https://stackoverflow.com/questions/7143077/how-can-i-install-packages-in-my-home-folder-with-pip">https://stackoverflow.com/questions/7143077/how-can-i-install-packages-in-my-home-folder-with-pip</a></li>
+<li><a href="https://blog.csdn.net/xingwangc2014/article/details/52811177">https://blog.csdn.net/xingwangc2014/article/details/52811177</a></li>
+<li><a href="https://github.com/yangbajing/sphinx-doc-starter">https://github.com/yangbajing/sphinx-doc-starter</a></li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="container"><p>Tommy Wang<br>2018-01-17 09:57:27<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+<div class="container"><p>Tommy Wang<br>2018-04-18 10:53:30<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
 </div>
 </body>
 </html>
