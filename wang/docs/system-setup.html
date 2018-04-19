@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cmn-Hans">
 <head>
-<!-- 2018-03-26 14:41:28 -->
+<!-- 2018-04-19 09:40:45 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>~ / 文档 / 重装系统时习惯的设置</title>
@@ -28,6 +28,7 @@
 <li><a href="#orgf46c0a8">1.1. Google Chrome 的同步设置</a></li>
 <li><a href="#org0caaecd">1.2. SSH 私钥导入</a></li>
 <li><a href="#org7560ad0">1.3. 建立一个用来进行源码编译的目录</a></li>
+<li><a href="#org6d1ce4d">1.4. 使用 Google Noto 字体</a></li>
 </ul>
 </li>
 <li><a href="#orgbf63fa0">2. Linux</a>
@@ -91,6 +92,20 @@ Mac OSX 默认没有，需要创建一个。
 $ sudo mkdir /usr/local/src
 $ sudo chown $USER /usr/local/src/
 $ sudo chmod u+rwx /usr/local/src/
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6d1ce4d" class="outline-3">
+<h3 id="org6d1ce4d"><span class="section-number-3">1.4</span> 使用 Google Noto 字体</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+进入 <a href="https://www.google.com/get/noto/">Google Noto 字体官网</a>，下载字体包，然后根据教程对不同的操作系统进行设置，很简单。对我来说，主要的目的是在各种系统下，生成的 pdf 文档风格统一美观。
+或者单独下载中文字体文件包。
+</p>
+<pre class="example">
+$ curl -O https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJK.ttc.zip
+$ curl -O https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJK.ttc.zip
 </pre>
 </div>
 </div>
@@ -174,7 +189,7 @@ $ echo 'source ~/Projects/gaixie/bitorb/environment' &gt;&gt; ~/.bash_profile
 </div>
 </div>
 <div id="postamble" class="status">
-<div class="container"><p>Tommy Wang<br>2018-03-26 14:41:01<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+<div class="container"><p>Tommy Wang<br>2018-04-19 09:40:11<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
 </div>
 </body>
 </html>
