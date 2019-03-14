@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cmn-Hans">
 <head>
-<!-- 2019-02-19 13:51:11 -->
+<!-- 2019-03-14 22:18:32 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>~ / 文档 / Nodejs 及相关软件的安装</title>
@@ -26,9 +26,10 @@
 <li><a href="#orga63c877">1. Mac OSX 系统下通过 homebrew 的安装</a></li>
 <li><a href="#org59d6f3e">2. Debian 通过 NodeSource 源安装</a></li>
 <li><a href="#org3053a8d">3. 源码编译安装</a></li>
-<li><a href="#org02fb93f">4. 使用 npm 自我升级 npm</a></li>
-<li><a href="#org9a0437c">5. 使用 npm 进行其它软件包安装</a></li>
-<li><a href="#org4740ba2">6. 使用国内镜像</a></li>
+<li><a href="#orgd46f6a6">4. OSX 二进制包安装</a></li>
+<li><a href="#org02fb93f">5. 使用 npm 自我升级 npm</a></li>
+<li><a href="#org9a0437c">6. 使用 npm 进行其它软件包安装</a></li>
+<li><a href="#org4740ba2">7. 使用国内镜像</a></li>
 </ul>
 </div>
 </nav>
@@ -90,9 +91,22 @@ $ sudo ln -s /usr/local/node/9.8.0 /usr/local/node/default
 </div>
 </div>
 
-<div id="outline-container-org02fb93f" class="outline-2">
-<h2 id="org02fb93f"><span class="section-number-2">4</span> 使用 npm 自我升级 npm</h2>
+<div id="outline-container-orgd46f6a6" class="outline-2">
+<h2 id="orgd46f6a6"><span class="section-number-2">4</span> OSX 二进制包安装</h2>
 <div class="outline-text-2" id="text-4">
+<p>
+先官网 <a href="https://nodejs.org/en/download/">下载</a> 最新的 tar.gz 包。然后解压缩至 /usr/local/node 目录，和源码编译方式一样，做个链接到 default.
+</p>
+<pre class="example">
+sudo tar xzvf node-v10.15.2-darwin-x64.tar.gz -C /usr/local/node
+sudo ln -s /usr/local/node/node-v10.15.2-darwin-x64 /usr/local/node/default
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org02fb93f" class="outline-2">
+<h2 id="org02fb93f"><span class="section-number-2">5</span> 使用 npm 自我升级 npm</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 因为 npm 全局安装在 node 目录下，需要 sudo 来升级，但记得通过 env 加环境变量。
 </p>
@@ -110,8 +124,8 @@ $ sudo env "PATH=$PATH:/usr/local/node/default/bin" npm i -g npm
 </div>
 
 <div id="outline-container-org9a0437c" class="outline-2">
-<h2 id="org9a0437c"><span class="section-number-2">5</span> 使用 npm 进行其它软件包安装</h2>
-<div class="outline-text-2" id="text-5">
+<h2 id="org9a0437c"><span class="section-number-2">6</span> 使用 npm 进行其它软件包安装</h2>
+<div class="outline-text-2" id="text-6">
 <pre class="example">
 $ npm install -g bower
 </pre>
@@ -126,10 +140,14 @@ $ npm install -g bower
 </div>
 
 <div id="outline-container-org4740ba2" class="outline-2">
-<h2 id="org4740ba2"><span class="section-number-2">6</span> 使用国内镜像</h2>
-<div class="outline-text-2" id="text-6">
+<h2 id="org4740ba2"><span class="section-number-2">7</span> 使用国内镜像</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+不可描述时，可以用国内镜像安装。
+</p>
 <pre class="example">
 $ npm config set registry https://registry.npm.taobao.org
+$ more ~/.npmrc
 </pre>
 <p>
 参考文档：
@@ -141,7 +159,7 @@ $ npm config set registry https://registry.npm.taobao.org
 </div>
 </div>
 <div id="postamble" class="status">
-<div class="container"><p>Tommy Wang<br>2019-02-19 13:30:58<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+<div class="container"><p>Tommy Wang<br>2019-03-14 22:09:43<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
 </div>
 </body>
 </html>

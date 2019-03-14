@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cmn-Hans">
 <head>
-<!-- 2018-04-19 09:40:45 -->
+<!-- 2019-03-14 22:18:32 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>~ / 文档 / 常用软件的安装与配置</title>
@@ -253,8 +253,8 @@ $ ln -sf ~/Projects/gaixie/bitorb/dot.gitconfig ~/.gitconfig
 <pre class="example">
 $ sudo yum erase emacs
 $ cd /usr/local/src
-$ sudo wget http://mirror.bjtu.edu.cn/gnu/emacs/emacs-24.3.tar.gz
-$ sudo tar xzvf emacs-24.3.tar.gz
+$ sudo wget https://mirrors.ustc.edu.cn/gnu/emacs/emacs-26.1.tar.gz
+$ sudo tar xzvf emacs-26.1.tar.gz
 </pre>
 <p>
 安装一些编译依赖的软件包，我目前使用的只是 Emacs 的大众功能，所以只要求能成功编译就行。
@@ -271,7 +271,7 @@ $ sudo yum install ncurses-devel
 Debian 8 下如果编译，需要安装下面的依赖包：
 </p>
 <pre class="example">
-$ sudo aptitude install build-essential libncurses5-dev autoconf
+$ sudo aptitude install build-essential libncurses5-dev autoconf libgnutls28-dev
 # x-win 支持
 $ sudo aptitude install xorg-dev libpng12-dev libjpeg8-dev libgif-dev libtiff5 libtiff5-dev
 </pre>
@@ -280,11 +280,11 @@ $ sudo aptitude install xorg-dev libpng12-dev libjpeg8-dev libgif-dev libtiff5 l
 下面进入解压缩后的源码目录，开始编译，安装，最后做一个执行文件的软链接。
 </p>
 <pre class="example">
-$ cd /usr/local/src/emacs-24.3
+$ cd /usr/local/src/emacs-26.1
 $ sudo mkdir /usr/local/emacs
-$ sudo ./configure --prefix=/usr/local/emacs/24.3
+$ sudo ./configure --prefix=/usr/local/emacs/26.1
 $ sudo make install
-$ sudo ln -sf /usr/local/emacs/24.3/bin/emacs /usr/local/bin/emacs
+$ sudo ln -sf /usr/local/emacs/26.1 /usr/local/emacs/default
 </pre>
 <p>
 以上是 Fedora 下 Emacs 编译安装过程，Mac OSX 我直接从 <a href="http://emacsformacosx.com/">http://emacsformacosx.com/</a> 下载最新的 dmg 文件安装。
@@ -571,7 +571,7 @@ $ pip install --user sphinx
 </div>
 </div>
 <div id="postamble" class="status">
-<div class="container"><p>Tommy Wang<br>2018-04-19 09:40:11<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
+<div class="container"><p>Tommy Wang<br>2019-03-14 22:09:43<br><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p></div>
 </div>
 </body>
 </html>
